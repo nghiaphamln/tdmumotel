@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('tdmumotel:server');
+var debug = require('debug')('motel:server');
 var http = require('http');
 
 /**
