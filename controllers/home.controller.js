@@ -6,6 +6,14 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+    static login (req, res) {
+        try {
+            res.render('login', {title: 'Đăng nhập'});
+        } catch (exception) {
+            res.status(500).send(exception);
+        }
+    }
 }
+
 
 module.exports = HomeController;

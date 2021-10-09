@@ -10,4 +10,9 @@ router
         HomeCtrl.index
     )
 
+    .get(
+        '/login',
+        HomeCtrl.login
+    )
+
 module.exports = router;
