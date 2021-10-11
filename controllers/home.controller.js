@@ -14,6 +14,7 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+    
     static about (req, res) {
         try {
             res.render('about', {title: 'Giới thiệu', page_name: 'about'});
