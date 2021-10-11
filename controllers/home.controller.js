@@ -6,10 +6,18 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+
     static login (req, res) {
         try {
             res.render('login', {title: 'Đăng nhập'});
         } catch (exception) {
+            res.status(500).send(exception);
+        }
+    }
+    static about (req, res) {
+        try {
+            res.render('about', {title: 'Giới thiệu'});
+        } catch {
             res.status(500).send(exception);
         }
     }

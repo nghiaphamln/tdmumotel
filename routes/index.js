@@ -15,4 +15,9 @@ router
         HomeCtrl.login
     )
 
+    .get(
+        '/about',
+        HomeCtrl.about
+    )
+
 module.exports = router;
