@@ -27,7 +27,7 @@ module.exports = (passport) => {
                     if (err)
                         return done(err);
                     if (user) {
-                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                        return done(null, false, req.flash('signupMessage', 'Email này đã được sử dụng!'));
                     } else {
 
                         var newUser = new User();
@@ -57,12 +57,11 @@ module.exports = (passport) => {
                 if (err)
                     return done(err);
                 if (!user)
-                    return done(null, false, req.flash('loginMessage', 'No user found.'));
+                    return done(null, false, req.flash('loginMessage', 'Thông tin tài khoản hoặc mật khẩu không chính xác!'));
                 if (!user.validPassword(password))
-                    return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+                    return done(null, false, req.flash('loginMessage', 'Thông tin tài khoản hoặc mật khẩu không chính xác!'));
                 return done(null, user);
             });
         })
     );
-
 }

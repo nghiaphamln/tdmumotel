@@ -4,7 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-var configDB = require('./config/database')
+const configDB = require('./config/database')
+const flash = require('connect-flash');
 
 
 // connect database
@@ -34,6 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 app.use(bodyParser());
+app.use(flash());
 
 
 app.use(session({
