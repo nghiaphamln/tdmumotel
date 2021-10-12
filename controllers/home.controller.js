@@ -9,7 +9,7 @@ class HomeController {
 
     static login (req, res) {
         try {
-            res.render('login', {title: 'Đăng nhập', page_name: 'login'});
+            res.render('login', {title: 'Đăng nhập', page_name: 'login', messages: req.flash('loginMessage')});
         } catch (exception) {
             res.status(500).send(exception);
         }
@@ -25,7 +25,7 @@ class HomeController {
 
     static register (req, res) {
         try {
-            res.render('register', {title: 'Đăng ký', page_name: 'register'});
+            res.render('register', {title: 'Đăng ký', page_name: 'register', messages: req.flash('signupMessage')});
         } catch {
             res.status(500).send(exception);
         }

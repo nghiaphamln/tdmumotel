@@ -6,6 +6,9 @@
             </div>
             <form action="/login" method="post">
                 <div class="mb-3">
+                    <% if (messages) { %>
+                        <p style="color: red; font-size: 15px;"> <%= messages %> </p>
+                    <% } %> 
                     <label class="form-label" for="email">Email</label>
                     <input class="form-control item" type="email" id="email" name="email"/>
                 </div>

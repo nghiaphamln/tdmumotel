@@ -6,6 +6,9 @@
       </div>
       <form action="/register" method="post">
         <div class="mb-3">
+          <% if (messages) { %>
+            <p style="color: red; font-size: 15px;"> <%= messages %> </p>
+        <% } %> 
           <label class="form-label" for="name">Tên</label
           ><input class="form-control item" type="text" id="name" name="fullname"/>
         </div>

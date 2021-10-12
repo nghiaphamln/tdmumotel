@@ -42,7 +42,7 @@ router
         '/register',
         passport.authenticate('local-signup', {
             successRedirect: '/',
-            failureRedirect: '/signup',
+            failureRedirect: '/register',
             failureFlash: true
         })
     )
