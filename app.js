@@ -3,12 +3,22 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+var configDB = require('./config/database')
+
+
+// connect database
+mongoose.connect(configDB.url);
+mongoose.Promise = global.Promise;
+
+const passport = require('passport');
+const session = require('express-session');
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const expressLayouts = require('express-ejs-layouts');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -24,6 +34,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 app.use(bodyParser());
+
+
+app.use(session({
+  secret: 'TimPhongTroTDMU',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+require('./config/passport')(passport);
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
