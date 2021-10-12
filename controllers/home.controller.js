@@ -30,6 +30,14 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+
+    static motel (req, res) {
+        try {
+            res.render('motel', {title: 'Phòng trọ', page_name: 'motel'});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
 }
 
 
