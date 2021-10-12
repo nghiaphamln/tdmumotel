@@ -8,7 +8,7 @@
                 <li class="nav-item"><a class="nav-link <% if (page_name == "about") { %> active <% } %>" href="about">Giới Thiệu</a></li>
                 <li class="nav-item"></li>
                 <% if (locals.user) { %>
-                    <li class="nav-item"><a class="nav-link">Xin chào, <%= user.name %> </a></li>
+                    <li class="nav-item"><a class="nav-link">Xin chào, <%= user.name %>! </a></li>
                 <% } else { %> 
                     <li class="nav-item"><a class="nav-link <% if (page_name == "login") { %> active <% } %>" href="login">Đăng nhập</a></li>
                     <li class="nav-item"><a class="nav-link <% if (page_name == "register") { %> active <% } %>" href="register">Đăng ký</a></li>
