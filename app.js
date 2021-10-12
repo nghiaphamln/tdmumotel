@@ -39,7 +39,7 @@ app.use(flash());
 
 
 app.use(session({
-  secret: 'TimPhongTroTDMU',
+  secret: 'TDMUMotel',
   resave: false,
   saveUninitialized: true,
 }));
