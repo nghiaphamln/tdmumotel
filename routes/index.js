@@ -14,6 +14,7 @@ router
 
     .get(
         '/login',
+        notLoggedIn,
         HomeCtrl.login
     )
 
@@ -33,6 +34,7 @@ router
 
     .get(
         '/register',
+        notLoggedIn,
         HomeCtrl.register
     )
 
@@ -61,4 +63,10 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/');
+}
+
+function notLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        res.redirect('/');
+    return next();
 }
