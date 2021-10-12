@@ -55,6 +55,11 @@ router
         }
     )
 
+    .get(
+        '/motel',
+        HomeCtrl.motel
+    )
+
     
 module.exports = router;
 
