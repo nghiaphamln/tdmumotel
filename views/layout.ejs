@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -12,17 +13,24 @@
     <link rel="stylesheet" href="css/styles.min.css">
     <% if (page_name == 'motel') { %> <link rel="stylesheet" href="css/main.css"> <% } %>  
     <% if (page_name == 'intropay') { %> <link rel="stylesheet" href="css/nicepage.css"> <link rel="stylesheet" href="css/intropayhome.css"> <% } %>  
+    <% if (page_name == 'qlbaidang') { %>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+      <link rel="stylesheet" href="/bootstrap/templatemo-style.css">
+    <% } %>
+
 </head>
+
 <body>
 
-<% include layouts/navbar.ejs%>
+    <% include layouts/navbar.ejs%>
 
-<%- body %>
+        <%- body %>
 
-<% include layouts/footer.ejs%>
+            <% include layouts/footer.ejs%>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-<script src="js/script.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+                <script src="js/script.min.js"></script>
 </body>
+
 </html>

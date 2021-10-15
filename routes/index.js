@@ -60,6 +60,7 @@ router
         HomeCtrl.motel
     )
 
+
     .get(
         '/intro-pay',
         HomeCtrl.introPay
