@@ -60,10 +60,6 @@ router
         HomeCtrl.motel
     )
 
-    .get(
-        '/qlbaidang',
-        HomeCtrl.qlbaidang
-    )
 
     .get(
         '/auth/facebook',

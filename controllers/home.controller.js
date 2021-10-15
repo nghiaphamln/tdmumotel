@@ -1,50 +1,44 @@
 class HomeController {
-    static index (req, res) {
+    static index(req, res) {
         try {
-            res.render('index', {title: 'Trang chủ', page_name: 'index', user: req.user});
+            res.render('index', { title: 'Trang chủ', page_name: 'index', user: req.user });
         } catch (exception) {
             res.status(500).send(exception);
         }
     }
 
-    static login (req, res) {
+    static login(req, res) {
         try {
-            res.render('login', {title: 'Đăng nhập', page_name: 'login', messages: req.flash('loginMessage')});
+            res.render('login', { title: 'Đăng nhập', page_name: 'login', messages: req.flash('loginMessage') });
         } catch (exception) {
             res.status(500).send(exception);
         }
     }
 
-    static about (req, res) {
+    static about(req, res) {
         try {
-            res.render('about', {title: 'Giới thiệu', page_name: 'about', user: req.user});
+            res.render('about', { title: 'Giới thiệu', page_name: 'about', user: req.user });
         } catch {
             res.status(500).send(exception);
         }
     }
 
-    static register (req, res) {
+    static register(req, res) {
         try {
-            res.render('register', {title: 'Đăng ký', page_name: 'register', messages: req.flash('signupMessage')});
+            res.render('register', { title: 'Đăng ký', page_name: 'register', messages: req.flash('signupMessage') });
         } catch {
             res.status(500).send(exception);
         }
     }
 
-    static motel (req, res) {
+    static motel(req, res) {
         try {
-            res.render('motel', {title: 'Phòng trọ', page_name: 'motel'});
+            res.render('motel', { title: 'Phòng trọ', page_name: 'motel' });
         } catch {
             res.status(500).send(exception);
         }
     }
-    static qlbaidang (req, res) {
-        try {
-            res.render('qlbaidang', {title: 'Quản lý bài đăng', page_name: 'qlbaidang'});
-        } catch {
-            res.status(500).send(exception);
-        }
-    }
+
 }
 
 
