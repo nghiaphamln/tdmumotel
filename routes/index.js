@@ -61,6 +61,11 @@ router
     )
 
     .get(
+        '/qlbaidang',
+        HomeCtrl.qlbaidang
+    )
+
+    .get(
         '/auth/facebook',
         passport.authenticate('facebook')
     )

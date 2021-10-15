@@ -38,6 +38,13 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+    static qlbaidang (req, res) {
+        try {
+            res.render('qlbaidang', {title: 'Quản lý bài đăng', page_name: 'qlbaidang'});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
 }
 
 
