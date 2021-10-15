@@ -9,7 +9,7 @@
                 <% if (locals.user) { %>
                     <li class="nav-item">
                     <div class="dropdown"><a class="dropdown-toggle" style="text-decoration:none ;" aria-expanded="false" data-bs-toggle="dropdown" href="#">Xin chào, <%= user.name %>!</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Thông tin cá nhân</a><a class="dropdown-item" href="#">Đổi mật khẩu</a><a class="dropdown-item" href="#">Đăng xuất</a></div>
+                        <div class="dropdown-menu"><a class="dropdown-item" href=change-password">Thông tin cá nhân</a><a class="dropdown-item" href="change-password">Đổi mật khẩu</a><a class="dropdown-item" href="/logout">Đăng xuất</a></div>
                     </div>
                     </li>
                 <% } else { %> 
