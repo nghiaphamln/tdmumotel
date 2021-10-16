@@ -23,7 +23,8 @@ var UserModelSchema = new Schema({
     countPost: { type: Number, default: 0 },
     phoneNumber: {type: String, default: ''},
     avatar: {type: String, default: '/images/no-avatar.jpeg'},
-    status: {type: Number, default: 0}
+    status: {type: Number, default: 0},
+    money: {type: Number, default: 0}
 });
 
 

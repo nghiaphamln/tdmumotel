@@ -62,6 +62,22 @@ router
 
 
     .get(
+        '/intro-pay',
+        HomeCtrl.introPay
+    )
+
+    .get(
+        '/reset-password',
+        HomeCtrl.resetPassword
+    )
+
+    .get(
+        '/change-password',
+        HomeCtrl.changePassword
+    )
+
+
+    .get(
         '/auth/facebook',
         passport.authenticate('facebook')
     )
