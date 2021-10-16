@@ -1,10 +1,3 @@
-/*
-
-Product Admin CSS Template
-
-https://templatemo.com/tm-524-product-admin
-
-*/
 
 html {
     font-size: 16px;
@@ -101,63 +94,6 @@ button:focus {
     margin-bottom: 30px;
 }
 
-.nav-link {
-    color: #fff;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 90%;
-}
-
-.nav-link>i {
-    margin-bottom: 10px;
-    margin-right: 0;
-    font-size: 1.5rem;
-}
-
-.dropdown-item,
-.nav-link {
-    padding: 15px 20px;
-}
-
-.dropdown-menu {
-    font-size: 90%;
-    color: #fff;
-    background-color: #567086;
-    border-radius: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    min-width: auto;
-}
-
-.dropdown-item {
-    color: #fff;
-    padding: 15px 30px;
-}
-
-.dropdown-item:focus,
-.dropdown-item:hover {
-    background-color: #567086;
-}
-
-.nav-item {
-    text-align: center;
-}
-
-.nav-item:last-child {
-    margin-right: 0;
-}
-
-.dropdown-toggle::after {
-    display: none;
-}
-
-.dropdown-menu {
-    margin-top: 0;
-    border: 0;
-}
 
 .tm-content-row {
     justify-content: space-between;
@@ -381,17 +317,17 @@ thead {
 
 .btn-primary {
     color: #fff;
-    background-color: #f5a623;
-    border: 2px solid #f5a623;
+    background-color: #415a70;
+    border: 2px solid #415a70;
     font-size: 90%;
     font-weight: 600;
 }
 
 .btn-primary:active,
 .btn-primary:hover {
-    color: #f5a623;
+    color: #415a70;
     background-color: transparent;
-    border: 2px solid #f5a623;
+    border: 2px solid #415a70;
 }
 
 .custom-file-input {
@@ -614,14 +550,6 @@ input[type="checkbox"]:focus {
     font-size: 22px;
 }
 
-.tm-login-col {
-    max-width: 470px;
-}
-
-.tm-nav-icon {
-    color: #fff;
-}
-
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -648,44 +576,7 @@ input[type="checkbox"]:focus {
     color: #aacbea;
 }
 
-@media (max-width: 1275px) and (min-width: 1200px) {
-    .nav-item {
-        margin-right: 15px;
-    }
-}
 
-@media (max-width: 1350px) {
-    .nav-item {
-        margin-right: 1px;
-    }
-}
-
-@media (max-width: 1199px) {
-    .tm-col-big,
-    .tm-col-small {
-        width: 49.65%;
-    }
-    .dropdown-menu {
-        text-align: center;
-    }
-    .nav-link {
-        color: #fff;
-        background-color: #567086;
-        padding: 15px;
-        flex-direction: row;
-    }
-    .nav-link>i {
-        font-size: 1rem;
-        margin-right: 10px;
-        margin-bottom: 0;
-    }
-    .nav-item {
-        margin-right: 0;
-    }
-    .tm-block-taller {
-        max-height: 520px;
-    }
-}
 
 @media (max-width: 991px) {
     .tm-col-big,
