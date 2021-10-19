@@ -8,5 +8,9 @@ router
         '/quan-li-bai-dang',
         AdminCtrl.qlbaidang
     )
+    .get(
+        '/qlthanhvien',
+        AdminCtrl.qlthanhvien
+    )
 
 module.exports = router;
