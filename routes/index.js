@@ -74,7 +74,11 @@ router
         '/change-password',
         HomeCtrl.changePassword
     )
-
+    
+    .get(
+        '/edit-profile',
+        HomeCtrl.editProfile
+    )
 
     .get(
         '/auth/facebook',

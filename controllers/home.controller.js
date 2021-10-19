@@ -62,6 +62,13 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+    static editProfile (req, res) {
+        try {
+            res.render('edit_profile', {title: 'Chỉnh sửa thông tin', page_name: 'edit_profile', user: req.user});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
 }
 
 
