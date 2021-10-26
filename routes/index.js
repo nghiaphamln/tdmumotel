@@ -73,6 +73,11 @@ router
 
     .get(
         '/change-password',
+        isLoggedIn,
+        HomeCtrl.changePasswordPage
+    )
+
+    .post('/change-password',
         HomeCtrl.changePassword
     )
 
