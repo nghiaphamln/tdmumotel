@@ -5,12 +5,19 @@ const AdminCtrl = require('../controllers/admin.controller');
 
 router
     .get(
-        '/quan-li-bai-dang',
+        '/qlbaidang',
         AdminCtrl.qlbaidang
     )
     .get(
         '/qlthanhvien',
         AdminCtrl.qlthanhvien
     )
-
+    .get(
+        '/ban-member/:id',
+        AdminCtrl.banMember
+    )
+    .get(
+        '/unban-member/:id',
+        AdminCtrl.unbanMember
+    )
 module.exports = router;

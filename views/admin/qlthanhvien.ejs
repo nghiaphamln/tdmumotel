@@ -17,11 +17,10 @@
                     <table class="table table-hover tm-table-small tm-product-table">
                         <thead>
                             <tr>
-
                                 <th scope="col">ID</th>
                                 <th scope="col">TÊN NGƯỜI DÙNG</th>
                                 <th scope="col">EMAIL</th>
-                                <th scope="col">PHÂN QUYỀN</th>
+                                <th scope="col">SĐT</th>
                                 <th scope="col">TỔNG BÀI ĐĂNG</th>
                                 <th scope="col">TRẠNG THÁI</th>
                                 <th scope="col">SỐ TIỀN TRONG TÀI KHOẢN</th>
@@ -30,27 +29,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-
-                                <td >10001</td>
-                                <td class="tm-product-name">Đinh Hà Hồng Thông</td>
-                                <td>LosAngeles@edu.vn</td>
-                                <td>Siêu admin</td>
-                                <td>15</td>
-                                <td>đang hoạt động</td>
-                                <td>1.000.000</td>
+                            
+                                <% listUser.forEach(function(member) { %>   
+                            <tr>         
+                                    <td> <%= member._id %>  </td>
+                                    <td> <%= member.name %>  </td>
+                                    <td> <%= member.email %>  </td>
+                                    <td> <%= member.phoneNumber %>  </td>
+                                    <td>(Processing)</td>
+                                    <% if (member.status == 0) {%>
+                                        <td> Đang hoạt động </td>
+                                    <% } else { %>
+                                        <td> Bị chặn</td>
+                                    <% } %>
+                                    
+                                    <td> <%= member.money %> </td>
+                                    <% if (member.status == 0) { %>
+                                       <td><a href="/admin/ban-member/<%= member._id %>  " class="tm-product-delete-link"><i class="fas fa-ban tm-product-delete-icon" onclick="return confirm('Bạn muốn chặn thành viên này?');" ></i></a></td> 
+                                    <% } else { %>
+                                        <td><a href="/admin/unban-member/<%= member._id %>  " class="tm-product-delete-link"> <i class="far fa-check-circle tm-product-delete-icon" onclick="return confirm('Xác nhận bỏ chặn thành viên');"></a></td>
+                                    <% } %>  
+                                
                                 <td>
-                                    <a href="#" class="tm-product-delete-link">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="tm-product-delete-link">
+                                    <a href="#" class="tm-product-delete-link tm-product-delete-icon">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>
-
+                            <% }); %>
                         </tbody>
                     </table>
 
