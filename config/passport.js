@@ -3,6 +3,7 @@ const FacebookStrategy = require("passport-facebook").Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require("../models/user.model");
 const configAuth = require("../config/auth");
+const bcrypt = require('bcrypt')
 
 module.exports = (passport) => {
   passport.serializeUser((user, done) => {
@@ -36,7 +37,15 @@ module.exports = (passport) => {
                 false,
                 req.flash("signupMessage", "Email này đã được sử dụng!")
               );
-            } else {
+            } 
+            if (password.length < 8)
+            {
+              return done(
+                null,
+                false,
+                req.flash("signupMessage", "Mật khẩu phải dài tối thiểu 8 ký tự!")
+              );}
+            else {
               var newUser = new User();
               newUser.local.name = req.body.fullname;
               newUser.name = req.body.fullname;
@@ -72,7 +81,7 @@ module.exports = (passport) => {
               false,
               req.flash(
                 "loginMessage",
-                "Thông tin tài khoản hoặc mật khẩu không chính xác!"
+                "Email không tồn tại!"
               )
             );
           if (!user.validPassword(password))
@@ -81,7 +90,7 @@ module.exports = (passport) => {
               false,
               req.flash(
                 "loginMessage",
-                "Thông tin tài khoản hoặc mật khẩu không chính xác!"
+                "Mật khẩu không chính xác!"
               )
             );
           return done(null, user);
@@ -89,6 +98,53 @@ module.exports = (passport) => {
       }
     )
   );
+
+    //CHANGE PASS LOCAL
+    // passport.use(
+    //   "local-changepass",
+    //   new LocalStrategy(
+    //     {
+    //       currentpasswordField: "currentpassword",
+    //       newpasswordField: "newpassword",
+    //       reenterpasswordField: "reenterpassword",
+    //       usernameField: "email",
+    //       passReqToCallback: true,
+    //     },
+    //     function (req, currentpassword, newpassword, reenterpassword, done) {
+    //       User.findOne({ "local.email": email }, function (err, user) {
+    //         if (!user.validPassword(password))
+    //           return done(
+    //             null,
+    //             false,
+    //             req.flash(
+    //               "changeMessage",
+    //               "Mật khẩu hiện tại không chính xác!"
+    //             )
+    //           );
+    //           if (newpassword != reenterpassword) {
+    //           return done(
+    //             null,
+    //             false,
+    //             req.flash(
+    //               "changeMessage",
+    //               "Mật khẩu mới và nhập lại mật khẩu mới không khớp!"
+    //             )
+    //           );}
+    //           else {
+    //             var currentPassword = req.body.currentpassword;
+    //             var newPassword = req.body.newpassword;
+    //             var currentPassword = req.body.reenterpassword;
+    //             var hashpass =  bcrypt.hash(newPassword, 10);
+    //             User.findOne({_id: req.user._id}, (err, doc) => {
+    //                 doc.local.password = hashpass;
+    //                 doc.save();
+    //             });
+    //       }
+    //         return done(null, user);
+    //       });
+    //     }
+    //   )
+    // );
 
   // FACEBOOK LOGIN
   passport.use(
