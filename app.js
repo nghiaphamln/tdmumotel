@@ -22,6 +22,8 @@ const adminRouter = require('./routes/admin');
 
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
+const hbs = require('express-handlebars');
+var expressValidator = require('express-validator');
 
 const app = express();
 
@@ -37,6 +39,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 app.use(bodyParser());
 app.use(flash());
+app.use(expressValidator());
+
 
 
 app.use(session({
