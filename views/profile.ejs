@@ -130,7 +130,7 @@
                 placeholder="Trắng tay"
                 id="money"
                 name="money"
-                value=<%= user.local.money %>
+                value="<%= (user.money).toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,') %>đ"
               />
             </div>
           </div>
