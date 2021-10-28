@@ -84,9 +84,8 @@
                 placeholder="Quyền truy cập"
                 id="status"
                 name="status"
-                <!--  Phân quyền  -->
                 <% if (user.permission == 0) { %> 
-                  value="Sinh viên" 
+                  value="Sinh viên"
                 <% } else if (user.permission == 1) { %> 
                   value="Chủ trọ" 
                 <% } else if (user.permission == 2) { %>
