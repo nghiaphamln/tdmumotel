@@ -100,6 +100,13 @@ router
         passport.authenticate('facebook')
     )
 
+    .get('/profile',
+        isLoggedIn,
+        HomeCtrl.profilePage)
+
+    .post('/profile',
+    HomeCtrl.profile)
+
     .get(
         '/auth/facebook/callback',
         passport.authenticate('facebook', {

@@ -66,6 +66,14 @@ class HomeController {
         }
     }
 
+    static profilePage(req, res) {
+      try {
+          res.render('profile', {title: 'Thông tin cá nhân', page_name: 'profile', user: req.user});
+      } catch {
+          res.status(500).send(exception);
+      }
+  }
+
     static introPay (req, res) {
         try {
             res.render('intropay', {title: 'Trả phí bài đăng', page_name: 'intropay', user: req.user});
@@ -82,7 +90,48 @@ class HomeController {
         }
     }
 
-    
+    static async profile(req, res) {
+      try {
+        upload(req, res, function(err) {
+            if (err instanceof multer.MulterError) {
+                res.json({"kq":0, "errMsg":"A Multer error occurred when uploading."});
+            } else if (err) {
+                res.json({"kq":0, "errMsg":"An unknown error occurred when uploading." + err});
+            } else {
+                var fullName = req.body.fullname;
+                var address = req.body.address;
+                var email = req.body.email;
+                var phone = req.body.phone;
+                console.log("Hình nè")
+                console.log(req.file)
+                try {
+                    var avatar = '/uploads/' + req.file.filename;
+                } 
+                catch {
+                    var avatar = null;
+                }
+
+                UserModel.findOne({_id: req.user._id}, (err, doc) => {
+
+                    doc.name = fullName;
+                    doc.email = email;
+                    doc.phoneNumber = phone;
+                    doc.address = address;
+                    if (avatar) {
+                        doc.avatar = avatar;
+                    }
+                    doc.save();
+                });
+
+                res.redirect('/profile');
+            }
+        });     
+    }
+    catch (e) {
+        console.log(e);
+        res.status(500).send(e);
+    }
+  }
 
     static async resetPassword (req, res, next) {
         async.waterfall([
