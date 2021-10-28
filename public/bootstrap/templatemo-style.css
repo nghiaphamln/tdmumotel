@@ -455,6 +455,13 @@ input[type="checkbox"]:focus {
     color: #fff;
 }
 
+.link {
+    color: #fff;
+    text-decoration: none;
+}
+.link:hover{
+    color: #acc6de;
+}
 .tm-product-delete-link {
     padding: 10px;
     border-radius: 50%;

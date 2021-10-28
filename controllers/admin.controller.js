@@ -14,7 +14,8 @@ class AdminController {
 
     static async qlthanhvien(req, res, next) {
         try {
-            res.render('admin/qlthanhvien', { title: 'Quản lý thành viên', page_name: 'qlthanhvien', user: req.user });
+            var listUser = await UserModel.find();
+            res.render('admin/qlthanhvien', { title: 'Quản lý thành viên', page_name: 'qlthanhvien', user: req.user, listUser: listUser, });
         } catch {
             res.status(500).send(exception);
         }

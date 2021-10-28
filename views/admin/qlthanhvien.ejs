@@ -10,7 +10,12 @@
                 
                 <div class="row">
                     <div class="col text-center">
-                      <button class="btn btn-primary btn-small mb-3">Thêm thành viên</button>
+                      <a href="" class="btn btn-primary btn-small mb-3">Thêm thành viên</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                      <a href="" class="btn btn-primary btn-small mb-3">Xem phản hồi</a>
                     </div>
                   </div>
                 <div class="tm-product-table-container">
@@ -33,7 +38,7 @@
                                 <% listUser.forEach(function(member) { %>   
                             <tr>         
                                     <td> <%= member._id %>  </td>
-                                    <td> <%= member.name %>  </td>
+                                    <td><a href="/profile/<%= member._id %>  " class="link"> <%= member.name %> </a> </td>
                                     <td> <%= member.email %>  </td>
                                     <td> <%= member.phoneNumber %>  </td>
                                     <td>(Processing)</td>
