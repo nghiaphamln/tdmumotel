@@ -6,8 +6,7 @@ class AdminController {
 
     static async qlbaidang(req, res, next) {
         try {
-            var listPost = await PostModel.find({status: 0}).sort({time: -1});
-            res.render('admin/qlbaidang', { title: 'Quản lý bài đăng', page_name: 'qlbaidang', user: req.user, lisPost: listPost });
+            res.render('admin/qlbaidang', { title: 'Quản lý bài đăng', page_name: 'qlbaidang' ,user: req.user});
         } catch {
             res.status(500).send(exception);
         }
@@ -15,16 +14,7 @@ class AdminController {
 
     static async qlthanhvien(req, res, next) {
         try {
-            var status = [
-                '<span class="badge badge-info">Bình thường</span>',
-                '<span class="badge badge-danger"> Bị cấm </span>'
-            ];
-            var listUser = await UserModel.find({});
-            res.render('admin/qlthanhvien', {  user: req.user,
-                listUser: listUser,
-                title: 'Quản lý thành viên',
-                page_name: 'qlthanhvien',
-                status: status });
+            res.render('admin/qlthanhvien', { title: 'Quản lý thành viên', page_name: 'qlthanhvien', user: req.user });
         } catch {
             res.status(500).send(exception);
         }
