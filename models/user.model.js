@@ -19,12 +19,15 @@ var UserModelSchema = new Schema({
     },
     name: {type: String, default: ''},
     email: {type: String, default: ''},
+    address: {type: String, default: ''},
     permission: { type: Number, default: 0 },
     countPost: { type: Number, default: 0 },
     phoneNumber: {type: String, default: ''},
     avatar: {type: String, default: '/images/no-avatar.jpeg'},
     status: {type: Number, default: 0},
-    money: {type: Number, default: 0}
+    money: {type: Number, default: 0},
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 
 

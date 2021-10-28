@@ -68,6 +68,11 @@ router
 
     .get(
         '/reset-password',
+        HomeCtrl.resetPasswordPage
+    )
+
+    .post(
+        '/reset-password',
         HomeCtrl.resetPassword
     )
 
@@ -82,10 +87,25 @@ router
     )
 
 
+    .get('/getnew-password/:token',
+        HomeCtrl.getnewPasswordPage
+    )
+
+    .post('/getnew-password/:token',
+        HomeCtrl.getnewPassword
+    )
+
     .get(
         '/auth/facebook',
         passport.authenticate('facebook')
     )
+
+    .get('/profile',
+        isLoggedIn,
+        HomeCtrl.profilePage)
+
+    .post('/profile',
+    HomeCtrl.profile)
 
     .get(
         '/auth/facebook/callback',
