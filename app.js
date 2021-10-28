@@ -18,6 +18,7 @@ const session = require('express-session');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
+const paymentRouter = require('./routes/payment');
 
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
@@ -57,6 +58,7 @@ require('./config/passport')(passport);
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
+app.use('/payment', paymentRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
