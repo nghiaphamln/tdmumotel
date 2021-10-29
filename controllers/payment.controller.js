@@ -87,12 +87,13 @@ class PaymentController {
         if (status == 0) {
             await UserModel.findOne({_id: req.user._id}, (err, doc) => {
                 doc.money = Number(doc.money) + Number(req.query.amount);
+                doc.permission = 1;
                 doc.save();
-                return res.redirect("/");
+                return res.redirect("/profile");
             });
         }
         else {
-            return res.redirect("/motel");
+            return res.redirect("/");
         }
     }
 }

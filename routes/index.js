@@ -63,6 +63,7 @@ router
 
     .get(
         '/intro-pay',
+        isLoggedIn,
         HomeCtrl.introPay
     )
 

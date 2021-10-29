@@ -67,16 +67,21 @@ class HomeController {
     }
 
     static profilePage(req, res) {
-      try {
-          res.render('profile', {title: 'Thông tin cá nhân', page_name: 'profile', user: req.user});
-      } catch {
-          res.status(500).send(exception);
-      }
-  }
+        try {
+            res.render('profile', {title: 'Thông tin cá nhân', page_name: 'profile', user: req.user});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
 
     static introPay (req, res) {
         try {
-            res.render('intropay', {title: 'Trả phí bài đăng', page_name: 'intropay', user: req.user});
+            if (req.user.permission == 0) {
+                res.render('intropay', {title: 'Trả phí bài đăng', page_name: 'intropay', user: req.user});
+            } 
+            else {
+                res.render("/");
+            }
         } catch {
             res.status(500).send(exception);
         }
