@@ -10,6 +10,14 @@ class AdminController {
         }
     }
 
+    static async duyetbai(req, res, next) {
+        try {
+            res.render('admin/duyetbai', {title: 'Duyệt bài', page_name: 'duyetbai', user: req.user });
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
+
     static async qlthanhvien(req, res, next) {
         try {
             var listUser = await UserModel.find();

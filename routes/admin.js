@@ -9,6 +9,10 @@ router
         AdminCtrl.qlbaidang
     )
     .get(
+        '/duyetbai',
+        AdminCtrl.duyetbai
+    )
+    .get(
         '/qlthanhvien',
         AdminCtrl.qlthanhvien
     )

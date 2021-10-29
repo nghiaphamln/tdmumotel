@@ -1,0 +1,100 @@
+<main class="container tm-mt-big tm-mb-big">
+    <section class="row">
+      <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+        <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="tm-block-title d-inline-block">BÀI ĐĂNG</h2>
+            </div>
+          </div>
+          <div class="row tm-edit-product-row">
+            <div class="col-xl-6 col-lg-6 col-md-12">
+              <form action="" method="post" class="tm-edit-product-form">
+                <div class="form-group mb-3">
+                  <label
+                    for="name"
+                    >TIÊU ĐỀ
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value="PHÒNG TRỌ ĐẦU TIÊN "
+                    class="form-control validate"
+                  />
+                </div>
+                <div class="form-group mb-3">
+                  <label
+                    for="description"
+                    >MÔ TẢ</label
+                  >
+                  <textarea                    
+                    class="form-control validate tm-small"
+                    rows="5"
+                    required
+                  >This is mô tả.</textarea>
+                </div>
+                <div class="form-group mb-3">
+                  <label
+                    for="category"
+                    >ĐỊA CHỈ</label
+                  >
+                  <select
+                    class="custom-select tm-select-accounts"
+                    id="category"
+                  >
+                    <option selected>---Chọn---</option>
+                    <option value="1" >Phú Hoà</option>
+                    <option value="2">Phú Thọ</option>
+                    <option value="3">Phú Cường</option>
+                    <option value="4">Lê Hồng Phong</option>
+                  </select>
+                </div>
+                <div class="row">
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                        <label
+                          for="expire_date"
+                          >NGÀY ĐĂNG BÀI
+                        </label>
+                        <input
+                          id="expire_date"
+                          name="expire_date"
+                          type="text"
+                          value="20-11-2021"
+                          class="form-control validate"
+                          data-large-mode="true"
+                        />
+                      </div>
+                      <div class="form-group mb-3 col-xs-12 col-sm-6">
+                        <label
+                          for="stock"
+                          >GIÁ TIỀN
+                        </label>
+                        <input
+                          id="stock"
+                          name="stock"
+                          type="text"
+                          value="1.500.000 VNĐ"
+                          class="form-control validate"/>
+                      </div>
+                </div>
+                
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+              <div class="tm-product-img-edit mx-auto">
+                <img src="img/product-image.jpg" alt="" class="img-fluid d-block mx-auto">
+               
+              </div>
+              <div class="custom-file mt-3 mb-3">
+                <input id="fileInput" type="file" style="display:none;" />
+                </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary btn-block text-uppercase">ĐĂNG BÀI</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </section>
+</main>

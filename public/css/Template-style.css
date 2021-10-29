@@ -289,7 +289,7 @@ thead {
   box-shadow: 0 0 0 0.1rem rgb(180, 206, 233, 0.5);
 }
 .form-group label {
-  color: #fff;
+  color: #000000;
   margin-bottom: 10px;
 }
 .tm-hide-sm {
