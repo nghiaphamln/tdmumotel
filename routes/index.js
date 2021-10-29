@@ -68,6 +68,17 @@ router
     )
 
     .get(
+        '/contact',
+        isLoggedIn,
+        HomeCtrl.contactPage
+    )
+
+    .post(
+        '/contact',
+        HomeCtrl.contact
+    )
+
+    .get(
         '/reset-password',
         HomeCtrl.resetPasswordPage
     )
