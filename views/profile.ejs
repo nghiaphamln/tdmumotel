@@ -77,8 +77,6 @@
           <div class="row py-2">
             <div class="col-md-6">
               <label for="email">Quyền truy cập</label>
-              <!-- Quyền là chủ trọ hay sinh viên là permision chứ k phải status nhen! -->
-              <% if (user.permission == 0) { %> 
               <input
                 type="text"
                 readonly="readonly"
@@ -86,41 +84,16 @@
                 placeholder="Quyền truy cập"
                 id="status"
                 name="status"
-                value="Sinh viên" 
-              /><% } %> 
-
-                <% if (user.permission == 1) { %> 
-                    <input
-                      type="text"
-                      readonly="readonly"
-                      class="bg-light form-control"
-                      placeholder="Quyền truy cập"
-                      id="status"
-                      name="status"
-                      value="Chủ trọ" 
-                    /><% } %> 
-
-                    <% if (user.permission  == 2) { %> 
-                        <input
-                          type="text"
-                          readonly="readonly"
-                          class="bg-light form-control"
-                          placeholder="Quyền truy cập"
-                          id="status"
-                          name="status"
-                          value="Quản trị viên" 
-                        /><% } %> 
-
-                        <% if (user.permission  == 3) { %> 
-                            <input
-                              type="text"
-                              readonly="readonly"
-                              class="bg-light form-control"
-                              placeholder="Quyền truy cập"
-                              id="status"
-                              name="status"
-                              value="SIêu người dùng" 
-                            /><% } %> 
+                <% if (user.permission == 0) { %> 
+                  value="Sinh viên"
+                <% } else if (user.permission == 1) { %> 
+                  value="Chủ trọ" 
+                <% } else if (user.permission == 2) { %>
+                  value="Admin" 
+                <% } else { %>
+                  value="Siêu người dùng" 
+                <% } %>   
+              />
             </div> 
             <div class="col-md-6 pt-md-0 pt-3">
               <label for="phone">Tiền</label>

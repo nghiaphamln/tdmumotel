@@ -37,14 +37,14 @@ module.exports = (passport) => {
                 false,
                 req.flash("signupMessage", "Email này đã được sử dụng!")
               );
-            } 
-            if (password.length < 8)
-            {
+            }
+            if (password.length < 8) {
               return done(
                 null,
                 false,
                 req.flash("signupMessage", "Mật khẩu phải dài tối thiểu 8 ký tự!")
-              );}
+              );
+            }
             else {
               var newUser = new User();
               newUser.local.name = req.body.fullname;
@@ -99,52 +99,52 @@ module.exports = (passport) => {
     )
   );
 
-    //CHANGE PASS LOCAL
-    // passport.use(
-    //   "local-changepass",
-    //   new LocalStrategy(
-    //     {
-    //       currentpasswordField: "currentpassword",
-    //       newpasswordField: "newpassword",
-    //       reenterpasswordField: "reenterpassword",
-    //       usernameField: "email",
-    //       passReqToCallback: true,
-    //     },
-    //     function (req, currentpassword, newpassword, reenterpassword, done) {
-    //       User.findOne({ "local.email": email }, function (err, user) {
-    //         if (!user.validPassword(password))
-    //           return done(
-    //             null,
-    //             false,
-    //             req.flash(
-    //               "changeMessage",
-    //               "Mật khẩu hiện tại không chính xác!"
-    //             )
-    //           );
-    //           if (newpassword != reenterpassword) {
-    //           return done(
-    //             null,
-    //             false,
-    //             req.flash(
-    //               "changeMessage",
-    //               "Mật khẩu mới và nhập lại mật khẩu mới không khớp!"
-    //             )
-    //           );}
-    //           else {
-    //             var currentPassword = req.body.currentpassword;
-    //             var newPassword = req.body.newpassword;
-    //             var currentPassword = req.body.reenterpassword;
-    //             var hashpass =  bcrypt.hash(newPassword, 10);
-    //             User.findOne({_id: req.user._id}, (err, doc) => {
-    //                 doc.local.password = hashpass;
-    //                 doc.save();
-    //             });
-    //       }
-    //         return done(null, user);
-    //       });
-    //     }
-    //   )
-    // );
+  //CHANGE PASS LOCAL
+  // passport.use(
+  //   "local-changepass",
+  //   new LocalStrategy(
+  //     {
+  //       currentpasswordField: "currentpassword",
+  //       newpasswordField: "newpassword",
+  //       reenterpasswordField: "reenterpassword",
+  //       usernameField: "email",
+  //       passReqToCallback: true,
+  //     },
+  //     function (req, currentpassword, newpassword, reenterpassword, done) {
+  //       User.findOne({ "local.email": email }, function (err, user) {
+  //         if (!user.validPassword(password))
+  //           return done(
+  //             null,
+  //             false,
+  //             req.flash(
+  //               "changeMessage",
+  //               "Mật khẩu hiện tại không chính xác!"
+  //             )
+  //           );
+  //           if (newpassword != reenterpassword) {
+  //           return done(
+  //             null,
+  //             false,
+  //             req.flash(
+  //               "changeMessage",
+  //               "Mật khẩu mới và nhập lại mật khẩu mới không khớp!"
+  //             )
+  //           );}
+  //           else {
+  //             var currentPassword = req.body.currentpassword;
+  //             var newPassword = req.body.newpassword;
+  //             var currentPassword = req.body.reenterpassword;
+  //             var hashpass =  bcrypt.hash(newPassword, 10);
+  //             User.findOne({_id: req.user._id}, (err, doc) => {
+  //                 doc.local.password = hashpass;
+  //                 doc.save();
+  //             });
+  //       }
+  //         return done(null, user);
+  //       });
+  //     }
+  //   )
+  // );
 
   // FACEBOOK LOGIN
   passport.use(
