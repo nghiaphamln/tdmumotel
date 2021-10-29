@@ -1,4 +1,5 @@
 const UserModel = require('../models/user.model');
+const ContactModel = require('../models/contact.model');
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 const async = require('async');
@@ -64,6 +65,45 @@ class HomeController {
         } catch {
             res.status(500).send(exception);
         }
+    }
+
+    static contactPage(req, res) {
+        try {
+            res.render('contact', { title: 'Phản hồi', page_name: 'contact', user: req.user, success: req.flash('success'), messages: req.flash('contactMessage')});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
+
+    static async contact(req, res, next) {
+        
+        var title = req.body.subject;
+        var content = req.body.message;
+        var userid = req.user.id;
+        var username = req.user.name;
+        var useremail = req.user.email;
+        var userpermission = req.user.permission;
+        var userphone = req.user.phoneNumber;
+        console.log(req.user.id);
+        
+    
+        if (content === "" || title === "") {
+            req.flash('contactMessage', 'Vui lòng điền đầy đủ các trường!');
+            return res.redirect("/contact");
+        }                                                             
+        var NewContact = new ContactModel();
+        NewContact.title = title;
+        NewContact.content = content;
+        NewContact.userid = userid;
+        NewContact.phoneNumber = userphone;
+        NewContact.permission = userpermission;
+        NewContact.email = useremail;
+        NewContact.name = username;
+        
+        NewContact.save();
+
+        req.flash('success', 'Phản hồi của bạn đã được gửi đi, Chúng tôi sẽ phản hồi đến bạn sớm !!');
+        return res.redirect("/contact");
     }
 
     static profilePage(req, res) {
@@ -232,7 +272,7 @@ class HomeController {
             }
             doc.local.password = hashNewPassword;
             doc.save();
-            req.flash('changePasswordMessage', 'Thay đổi mật khẩu thành công!');
+            req.flash('success', 'Thay đổi mật khẩu thành công!');
             return res.redirect("/change-password");
         });
     }
@@ -240,8 +280,7 @@ class HomeController {
         try {
             console.log("Đổi mật")
             console.log(req.user)
-
-            res.render('changepassword', { title: 'Thay đổi mật khẩu', page_name: 'changepassword', user: req.user, messages: req.flash('changePasswordMessage') });
+            res.render('changepassword', {title: 'Thay đổi mật khẩu', page_name: 'changepassword', user: req.user, success: req.flash('success'), messages: req.flash('changePasswordMessage')});
         } catch {
             res.status(500).send(exception);
         }
