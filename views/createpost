@@ -26,14 +26,14 @@
                     <div class="list-group list-group-flush account-settings-links">
                         <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="/profileuser/<%= user._id %>">Thông tin cá nhân</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list" href="/viewpost">Xem bài
+                        <a class="list-group-item list-group-item-action" data-toggle="list" href="/editpost">Xem bài
                             đăng</a>
-                        <a class="list-group-item list-group-item-action active" data-toggle="list" href="/newpost">Đăng
+                        <a class="list-group-item list-group-item-action active" data-toggle="list" href="/createpost">Đăng
                             bài
                             viết mới</a>
                         <% if (user.permission >= 1) { %>
-                            <a class="list-group-item list-group-item-action" data-toggle="list" href="/admin/list-post">Duyệt bài</a>
-                            <a class="list-group-item list-group-item-action" data-toggle="list" href="/admin/member">Quản lí thành viên</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="list" href="#">Duyệt bài</a>
+                            <!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="/admin/member">Quản lí thành viên</a> -->
                         <% } %> 
                     </div>
                 </div>
