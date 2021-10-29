@@ -2,11 +2,9 @@ var UserModel = require('../models/user.model');
 var PostModel = require('../models/motel.model');
 
 class AdminController {
-
-
     static async qlbaidang(req, res, next) {
         try {
-            res.render('admin/qlbaidang', { title: 'Quản lý bài đăng', page_name: 'qlbaidang' ,user: req.user});
+            res.render('admin/qlbaidang', { title: 'Quản lý bài đăng', page_name: 'qlbaidang', user: req.user });
         } catch {
             res.status(500).send(exception);
         }
@@ -23,7 +21,7 @@ class AdminController {
 
     static async banMember(req, res, next) {
         var userID = req.params.id;
-        await UserModel.findOne({_id: userID}, (err, doc) => {
+        await UserModel.findOne({ _id: userID }, (err, doc) => {
             doc.status = 1;
             doc.save();
             res.redirect('/admin/qlthanhvien');
@@ -32,7 +30,7 @@ class AdminController {
 
     static async unbanMember(req, res, next) {
         var userID = req.params.id;
-        await UserModel.findOne({_id: userID}, (err, doc) => {
+        await UserModel.findOne({ _id: userID }, (err, doc) => {
             doc.status = 0;
             doc.save();
             res.redirect('/admin/qlthanhvien');

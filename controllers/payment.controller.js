@@ -32,17 +32,17 @@ class PaymentController {
             .digest('hex');
 
         let requestBody = JSON.stringify({
-            partnerCode : partnerCode,
-            accessKey : accessKey,
-            requestId : requestId,
-            amount : amount,
-            orderId : orderId,
-            orderInfo : orderInfo,
-            redirectUrl : redirectUrl,
-            ipnUrl : ipnUrl,
-            extraData : extraData,
-            requestType : requestType,
-            signature : signature
+            partnerCode: partnerCode,
+            accessKey: accessKey,
+            requestId: requestId,
+            amount: amount,
+            orderId: orderId,
+            orderInfo: orderInfo,
+            redirectUrl: redirectUrl,
+            ipnUrl: ipnUrl,
+            extraData: extraData,
+            requestType: requestType,
+            signature: signature
         });
 
         let options = {
@@ -85,7 +85,7 @@ class PaymentController {
     static async MomoCallBack(req, res, next) {
         let status = req.query.resultCode;
         if (status == 0) {
-            await UserModel.findOne({_id: req.user._id}, (err, doc) => {
+            await UserModel.findOne({ _id: req.user._id }, (err, doc) => {
                 doc.money = Number(doc.money) + Number(req.query.amount);
                 doc.permission = 1;
                 doc.save();
