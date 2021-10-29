@@ -63,6 +63,7 @@ router
 
     .get(
         '/intro-pay',
+        isLoggedIn,
         HomeCtrl.introPay
     )
 
@@ -99,6 +100,13 @@ router
         '/auth/facebook',
         passport.authenticate('facebook')
     )
+
+    .get('/profile',
+        isLoggedIn,
+        HomeCtrl.profilePage)
+
+    .post('/profile',
+    HomeCtrl.profile)
 
     .get(
         '/auth/facebook/callback',

@@ -19,6 +19,7 @@ var UserModelSchema = new Schema({
     },
     name: {type: String, default: ''},
     email: {type: String, default: ''},
+    address: {type: String, default: ''},
     permission: { type: Number, default: 0 },
     countPost: { type: Number, default: 0 },
     phoneNumber: {type: String, default: ''},

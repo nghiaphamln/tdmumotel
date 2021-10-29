@@ -1,3 +1,7 @@
+<% var page_name; %>
+<% if (page_name == "404") { %>
+    <% include layouts/404.ejs%>
+<% } else { %>
 <!DOCTYPE html>
 <html>
 
@@ -5,15 +9,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title><%= title %> - Motel</title>
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
     <% if (page_name == 'motel') { %> <link rel="stylesheet" href="/css/main.css"> <% } %>  
     <% if (page_name == 'intropay') { %> <link rel="stylesheet" href="/css/nicepage.css"> <link rel="stylesheet" href="/css/intropayhome.css"> <% } %>  
     <% if (page_name == 'qlbaidang' ||page_name == 'qlthanhvien' ) { %>
+    <% if (page_name == 'profile') { %> <link rel="stylesheet" href="/css/profile.css"> <% } %>  
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
       <link rel="stylesheet" href="/bootstrap/templatemo-style.css">
     <% } %>
@@ -40,3 +48,4 @@
 </body>
 
 </html>
+<% } %>  
