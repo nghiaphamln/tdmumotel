@@ -7,6 +7,7 @@
                 <li class="nav-item"><a class="nav-link <% if (page_name == " motel ") { %> active <% } %>" href="/motel">Tìm Phòng</a></li>
                 <li class="nav-item"><a class="nav-link <% if (page_name == " about ") { %> active <% } %>" href="/about">Giới Thiệu</a></li>
                 <% if (locals.user) { %>
+                    <li class="nav-item"><a class="nav-link <% if (page_name == " contact ") { %> active <% } %>" href="/contact">Phản Hồi</a></li>
                     <li class="nav-item">
                     <div class="dropdown"><a class="dropdown-toggle" style="text-decoration:none ;" aria-expanded="false" data-bs-toggle="dropdown" href="#">Xin chào, <%= user.name %>!</a>
                         <div class="dropdown-menu"><a class="dropdown-item" href="/profile">Thông tin cá nhân</a><a class="dropdown-item" href="/change-password">Đổi mật khẩu</a><a class="dropdown-item" href="/logout">Đăng xuất</a></div>
