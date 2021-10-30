@@ -5,13 +5,6 @@ TemplateMo 546 Sixteen Clothing
 https://templatemo.com/tm-546-sixteen-clothing
 
 */
-body {
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 p {
 	margin-bottom: 0px;
 	font-size: 14px;
@@ -215,10 +208,10 @@ header {
     -o-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
 }
-header .navbar {
+header {
 	padding: 17px 0px;
 }
-.background-header .navbar {
+.background-header {
 	padding: 17px 0px;
 }
 .background-header {
@@ -227,86 +220,19 @@ header .navbar {
 	background-color: #fff!important;
 	box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
 }
-.background-header .navbar-brand h2 {
+.background-header h2 {
 	color: #121212!important;
 }
-.background-header .navbar-nav a.nav-link {
+.background-header  a {
 	color: #1e1e1e!important;
 }
-.background-header .navbar-nav .nav-link:hover,
-.background-header .navbar-nav .active>.nav-link,
-.background-header .navbar-nav .nav-link.active,
-.background-header .navbar-nav .nav-link.show,
-.background-header .navbar-nav .show>.nav-link {
+.background-header  :hover,
+.background-header  .active>,
+.background-header  .active,
+.background-header  .show,
+.background-header  .show> {
 	color: #f33f3f!important;
 }
-.navbar .navbar-brand {
-	float: 	left;
-	margin-top: -12px;
-	outline: none;
-}
-.navbar .navbar-brand h2 {
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 24px;
-	font-weight: 700;
-	-webkit-transition: all .3s ease 0s;
-    -moz-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
-    transition: all .3s ease 0s;
-}
-.navbar .navbar-brand h2 em {
-	font-style: normal;
-	color: #f33f3f;
-}
-#navbarResponsive {
-	z-index: 999;
-}
-.navbar-collapse {
-	text-align: center;
-}
-.navbar .navbar-nav .nav-item {
-	margin: 0px 15px;
-}
-.navbar .navbar-nav a.nav-link {
-	text-transform: capitalize;
-	font-size: 15px;
-	font-weight: 500;
-	letter-spacing: 0.5px;
-	color: rgb(61, 61, 61);
-	transition: all 0.5s;
-	margin-top: 5px;
-}
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .active>.nav-link,
-.navbar .navbar-nav .nav-link.active,
-.navbar .navbar-nav .nav-link.show,
-.navbar .navbar-nav .show>.nav-link {
-	color: #fff;
-	padding-bottom: 25px;
-	border-bottom: 3px solid #f33f3f;
-}
-.navbar .navbar-toggler-icon {
-	background-image: none;
-}
-.navbar .navbar-toggler {
-	border-color: #fff;
-	background-color: #fff;	
-	height: 36px;
-	outline: none;
-	border-radius: 0px;
-	position: absolute;
-	right: 30px;
-	top: 20px;
-}
-.navbar .navbar-toggler-icon:after {
-	content: '\f0c9';
-	color: #f33f3f;
-	font-size: 18px;
-	line-height: 26px;
-	font-family: 'FontAwesome';
-}
-
 
 
 /* Banner Style */
@@ -1003,17 +929,7 @@ footer .inner-content p a {
 }
 
 @media (max-width: 992px) {
-	.navbar .navbar-brand {
-		position: absolute;
-		left: 30px;
-		top: 32px;
-	}
-	.navbar .navbar-brand {
-		width: auto;
-	}
-	.navbar:after {
-		display: none;
-	}
+	
 	#navbarResponsive {
 	    z-index: 99999;
 	    position: absolute;
@@ -1024,25 +940,7 @@ footer .inner-content p a {
 	    background-color: #fff;
 	    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
 	}
-	.navbar .navbar-nav .nav-item {
-		border-bottom: 1px solid #eee;
-	}
-	.navbar .navbar-nav .nav-item:last-child {
-		border-bottom: none;
-	}
-	.navbar .navbar-nav a.nav-link {
-		padding: 15px 0px;
-		color: #1e1e1e!important;
-	}
-	.navbar .navbar-nav .nav-link:hover,
-	.navbar .navbar-nav .active>.nav-link,
-	.navbar .navbar-nav .nav-link.active,
-	.navbar .navbar-nav .nav-link.show,
-	.navbar .navbar-nav .show>.nav-link {
-		color: #f33f3f!important;
-		border-bottom: none!important;
-		padding-bottom: 15px;
-	}
+		
 	.product-item .down-content h4 {
 		margin-bottom: 10px;
 	}
