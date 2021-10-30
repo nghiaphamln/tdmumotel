@@ -24,4 +24,10 @@ router
         '/unban-member/:id',
         AdminCtrl.unbanMember
     )
+
+    .get(
+        '/xemphanhoi',
+        AdminCtrl.xemphanhoi
+    )
+
 module.exports = router;
