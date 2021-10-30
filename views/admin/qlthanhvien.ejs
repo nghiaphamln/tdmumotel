@@ -1,6 +1,6 @@
 <main class="page manager-page">
     <section class="clean-block about-us">
-        <div class="container">
+        <div class="container-fluid">
             <div class="block-heading">
                 <h2 class="text-info">Quản lý thành viên</h2>
             </div>
@@ -9,15 +9,14 @@
             <div class="container-center ">
                 
                 <div class="row">
-                    <div class="col text-center">
+                    <div class="col canphai">
                       <a href="" class="btn btn-primary btn-small mb-3">Thêm thành viên</a>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col text-center">
+
+                    <div class="col">
                       <a href="" class="btn btn-primary btn-small mb-3">Xem phản hồi</a>
                     </div>
-                  </div>
+                </div>
                 <div class="tm-product-table-container">
                     <table class="table table-hover tm-table-small tm-product-table">
                         <thead>
@@ -38,7 +37,7 @@
                                 <% listUser.forEach(function(member) { %>   
                             <tr>         
                                     <td> <%= member._id %>  </td>
-                                    <td><a href="/profile/<%= member._id %>  " class="link"> <%= member.name %> </a> </td>
+                                    <td> <%= member.name %> </td>
                                     <td> <%= member.email %>  </td>
                                     <td> <%= member.phoneNumber %>  </td>
                                     <td>(Processing)</td>
@@ -52,7 +51,7 @@
                                     <% if (member.status == 0) { %>
                                        <td><a href="/admin/ban-member/<%= member._id %>  " class="tm-product-delete-link"><i class="fas fa-ban tm-product-delete-icon" onclick="return confirm('Bạn muốn chặn thành viên này?');" ></i></a></td> 
                                     <% } else { %>
-                                        <td><a href="/admin/unban-member/<%= member._id %>  " class="tm-product-delete-link"> <i class="far fa-check-circle tm-product-delete-icon" onclick="return confirm('Xác nhận bỏ chặn thành viên');"></a></td>
+                                        <td><a href="/admin/unban-member/<%= member._id %>  " class="tm-product-delete-link"> <i class="far fa-check-circle tm-product-delete-icon" onclick="return confirm('Xác nhận bỏ chặn thành viên');"></i></a></td>
                                     <% } %>  
                                 
                                 <td>
@@ -68,6 +67,7 @@
 
                 </div>
             </div>
+         </div>
     </section>
 
 </main>

@@ -1,6 +1,6 @@
 var UserModel = require('../models/user.model');
 var PostModel = require('../models/motel.model');
-
+var ContactModel = require('../models/contact.model');
 class AdminController {
     static async qlbaidang(req, res, next) {
         try {
@@ -12,8 +12,8 @@ class AdminController {
 
     static async qlthanhvien(req, res, next) {
         try {
-            var listUser = await UserModel.find();
-            res.render('admin/qlthanhvien', { title: 'Quản lý thành viên', page_name: 'qlthanhvien', user: req.user, listUser: listUser, });
+            var listUser = await UserModel.find();  
+            res.render('admin/qlthanhvien', { title: 'Quản lý thành viên', page_name: 'qlthanhvien', user: req.user, listUser: listUser });
         } catch {
             res.status(500).send(exception);
         }
@@ -37,5 +37,14 @@ class AdminController {
         });
     }
 
+    static async xemphanhoi(req, res, next) {
+        
+        try {
+            var listContact = await ContactModel.find({}); 
+            res.render('admin/xemphanhoi', { title: 'Phản hồi từ thành viên', page_name: 'xemphanhoi', user: req.user, listContact: listContact});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
 }
 module.exports = AdminController;
