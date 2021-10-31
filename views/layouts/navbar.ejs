@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
     <div class="container">
-        <a class="navbar-brand logo" href="#">TDMU Motel</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand logo" href="/">TDMU Motel</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link <% if (page_name == " index ") { %> active <% } %>" href="/">Trang Chủ</a></li>
@@ -10,7 +10,7 @@
                     <li class="nav-item"><a class="nav-link <% if (page_name == " contact ") { %> active <% } %>" href="/contact">Phản Hồi</a></li>
                     <li class="nav-item">
                     <div class="dropdown"><a class="dropdown-toggle" style="text-decoration:none ;" aria-expanded="false" data-bs-toggle="dropdown" href="#">Xin chào, <%= user.name %>!</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="/profile">Thông tin cá nhân</a><a class="dropdown-item" href="/change-password">Đổi mật khẩu</a><a class="dropdown-item" href="/logout">Đăng xuất</a></div>
+                        <div class="dropdown-menu"><% if (user.permission == 1) { %> <a class="dropdown-item" href="/owner/listroom">Quản lý phòng trọ</a> <% } %><a class="dropdown-item" href="/profile">Thông tin cá nhân</a><a class="dropdown-item" href="/change-password">Đổi mật khẩu</a><a class="dropdown-item" href="/logout">Đăng xuất</a></div>
                     </div>
                     </li>
                     <% } else { %>

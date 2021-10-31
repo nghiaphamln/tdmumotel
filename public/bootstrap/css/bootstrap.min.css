@@ -15735,6 +15735,22 @@ fieldset:disabled .btn {
 	border-color: #a70a24
 }
 
+.btn-delete {
+    width: 80%;
+	height: 35px;
+	color:  white;
+	background-color: #a70a24;
+	border-color: #a70a24
+}
+
+.btn-view {
+    width: 80%;
+	height: 35px;
+	color:  white;
+	background-color: #006c9e;
+	border-color: #006c9e;
+}
+
 .btn-login {
     margin-top: 20px;
     width: 100%;
