@@ -149,6 +149,7 @@ class HomeController {
                     var phone = req.body.phone;
                     console.log("Hình nè")
                     console.log(req.file)
+                    console.log(req.file.filename)
                     try {
                         var avatar = '/uploads/' + req.file.filename;
                     }

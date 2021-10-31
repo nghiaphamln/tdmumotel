@@ -119,6 +119,9 @@ router
     .post('/profile',
     HomeCtrl.profile)
 
+
+    
+
     .get(
         '/auth/facebook/callback',
         passport.authenticate('facebook', {

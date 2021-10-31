@@ -1,0 +1,63 @@
+<main class="page listroom-page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            
+<div class="container mt-5">
+<div class="row tm-content-row">
+    <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
+    <div class="tm-bg-primary-dark tm-block tm-block-products">
+        <div class="tm-product-table-container">
+        <table class="table table-hover tm-table-small tm-product-table">
+            <thead>
+            <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">Tiêu đề</th>
+                <th scope="col">Giá phòng</th>
+                <th scope="col">Điện</th>
+                <th scope="col">Nước</th>
+                <th scope="col">Loại phòng</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% listRoom.forEach(function(member) { %>  
+            <tr>
+            
+                <th scope="row"><input type="checkbox" /></th>
+                <td class="tm-product-name"><%= member.title %></td>
+                <td><%= member.cost %></td>
+                <td><%= member.electric %></td>
+                <td><%= member.water %></td>
+                <td><%= member.roomType %></td>
+                <td><% if (member.status == 0) { %> Đang chờ duyệt <% } else if (member.status == 1) { %> Đã duyệt <% } else { %> Đã bị ban <% } %>   
+                    
+                      </td>
+                <td>
+                    <button class="btn btn-delete" onclick="return confirm('Bạn muốn xóa bài này khum?');"><a href="/owner/delete-room/<%= member._id %>" style="text-decoration: none; color: white;">Xóa</a</button>
+                </td>
+                <td>
+                    <button class="btn btn-view"><a href="/owner/editroom/<%= member._id %>" style="text-decoration: none; color: white;">Xem</a</button>
+                </td>
+                
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+        </div>
+        <!-- table container -->
+        <a
+        href="/owner/addnewroom"
+        class="btn btn-primary btn-block text-uppercase mb-3">Thêm phòng mới</a>
+        <!-- <button class="btn btn-primary btn-block text-uppercase">
+        Delete selected products
+        </button> -->
+    </div>
+    </div>
+    
+</div>
+</div>
+</div>
+</section>
+</main>
