@@ -116,7 +116,7 @@ class OwnerController {
             var listPostID = await PostModel.findOne({_id: req.params.id});
   
             res.render('owner/editroom', {
-                title: req.title,
+                title: 'Chi tiết phòng',
                 page_name: 'editroom',
                 user: req.user,
                 _id: req.id,

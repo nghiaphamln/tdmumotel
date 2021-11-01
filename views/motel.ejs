@@ -1,120 +1,168 @@
 <main class="page catalog-page">
-    <section class="clean-block clean-catalog dark">
-        <div class="s009">
-            <form>
-                <div class="inner-form">
-                    <div class="basic-search">
-                        <div class="input-field">
-                            <input id="search" type="text" placeholder="Nhập từ khóa" />
-                            <div class="icon-wrap">
-                                <svg class="svg-inline--fa fa-search fa-w-16" fill="#ccc" aria-hidden="true"
-                                    data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="advance-search">
-                        <span class="desc">Bộ lọc</span>
-                        <div class="row">
-                            <div class="input-field">
-                                <div class="input-select">
-                                    <select data-trigger="" name="choices-single-defaul">
-                                        <option placeholder="" value="">Loại</option>
-                                        <option>Có gác</option>
-                                        <option>không có gác</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-field">
-                                <div class="input-select">
-                                    <select data-trigger="" name="choices-single-defaul">
-                                        <option placeholder="" value="">Diện tích</option>
-                                        <option>4x4</option>
-                                        <option>4x5</option>
-                                        <option>5x5</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-field">
-                                <div class="input-select">
-                                    <select data-trigger="" name="choices-single-defaul">
-                                        <option placeholder="" value="">Màu sắc</option>
-                                        <option>Xanh lá</option>
-                                        <option>Vàng</option>
-                                        <option>Xanh dương</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row second">
-                            <div class="input-field">
-                                <div class="input-select">
-                                    <select data-trigger="" name="choices-single-defaul">
-                                        <option placeholder="" value="">Giá cả</option>
-                                        <option>dưới 1tr</option>
-                                        <option>từ 1tr đến dưới 1,5tr</option>
-                                        <option>trên 1,5tr</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-field">
-                                <div class="input-select">
-                                    <select data-trigger="" name="choices-single-defaul">
-                                        <option placeholder="" value="">Khu vực</option>
-                                        <option>Phú Hòa</option>
-                                        <option>Phú Lợi</option>
-                                        <option>Chánh Nghĩa</option>
-                                        <option>Hiệp Thành</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-field">
-                                <div class="input-select">
-                                    <select data-trigger="" name="choices-single-defaul">
-                                        <option placeholder="" value="">Cọc trước</option>
-                                        <option>Có cọc</option>
-                                        <option>Không cọc</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row third">
-                            <div class="input-field">
-                                <div class="result-count">
-                                    <span> 0 </span>Kết quả
-                                </div>
-                                <div class="group-btn">
-                                    <button class="btn-delete" id="delete">Đặt lại</button>
-                                    <button class="btn-search">Tìm</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <section class="clean-block clean-catalog dark">
+    <div class="s009">
+      <form action="/motel" method="get">
+        <div class="inner-form">
+          <div class="advance-search">
+            <span class="desc">Bộ lọc</span>
+            <div class="row">
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="roomType" id="roomType">
+                    <option placeholder="" value="">Loại</option>
+                    <option>Có gác</option>
+                    <option>Không có gác</option>
+                  </select>
                 </div>
-            </form>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="wards" id="wards">
+                    <option placeholder="" value="">Khu vực</option>
+                    <option>Phú Hòa</option>
+                    <option>Phú Lợi</option>
+                    <option>Phú Cường</option>
+                    <option>Phú Mỹ</option>
+                    <option>Phú Thọ</option>
+                    <option>Phú Tân</option>
+                    <option>Hòa Phú</option>
+                    <option>Tương Bình Hiệp</option>
+                    <option>Chánh Mỹ</option>
+                    <option>Chánh Nghĩa</option>
+                    <option>Hiệp Thành</option>
+                    <option>Tân An</option>
+                    <option>Định Hòa</option>
+                    <option>Hiệp An</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="cost" id="cost">
+                    <option placeholder="" value="">Giá</option>
+                    <option value="Dưới 1 triệu">Dưới 1 triệu</option>
+                    <option value="Từ 1 triệu đến 1,5 triệu">
+                      Từ 1 triệu đến 1,5 triệu
+                    </option>
+                    <option value="Trên 1,5 triệu">Trên 1,5 triệu</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row third">
+              <div class="input-field">
+                <div class="group-btn">
+                  <button class="btn-search">Tìm</button>
+                  <!-- <button class="btn-search">Tìm</button> -->
+                </div>
+              </div>
+            </div>
+            <% if (messages) { %>
+                <p style="color: red; font-size: 15px;"> <%= messages %> </p>
+            <% } %> 
+            <% if (roomType) { %>
+            <p style="padding-top: 10px">
+              Kết quả tìm kiếm cho: Loại: <%= roomType%>, Khu vực: <%= wards%>,
+              Giá: <%= cost%>
+            </p>
+            <% } %>
+          </div>
         </div>
-        <script src="js/extention/choices.js"></script>
-        <script>
-            const customSelects = document.querySelectorAll("select");
-            const deleteBtn = document.getElementById('delete')
-            const choices = new Choices('select',
-                {
-                    searchEnabled: false,
-                    itemSelectText: '',
-                    removeItemButton: true,
-                });
-            deleteBtn.addEventListener("click", function (e) {
-                e.preventDefault()
-                const deleteAll = document.querySelectorAll('.choices__button')
-                for (let i = 0; i < deleteAll.length; i++) {
-                    deleteAll[i].click();
-                }
-            });
+      </form>
+    </div>
+    <div class="s009">
+      <form action="/motel" method="get">
+        <div class="inner-form">
+          <div class="advance-search">
+            <span class="desc">Tìm theo từ khóa</span>
+            <div class="group-btn">
+              <input
+                id="keyword"
+                name="keyword"
+                type="text"
+                class="form-control validate"
+                placeholder="Nhập từ khóa tìm kiếm"
+              />
 
-        </script>
-    </section>
+              <button class="btn-search" style="margin-top: 20px; color: white; background-color:  seagreen; width: 100px; height: 40px; border: none;">Tìm</button>
+            </div>
+            <% if (keyword) { %>
+                <p style="padding-top: 10px">
+                  Kết quả tìm kiếm cho từ khóa: <%= keyword%></p>
+                <% } %>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="filters-content">
+              <div class="row grid">
+                <% listroom.forEach(function(room) { %>
+                <div class="col-lg-4 col-md-4 all des">
+                  <div
+                    class="product-item"
+                    style="
+                      margin: 5px;
+                      border-radius: 15px;
+                      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+                    "
+                  >
+                    <div>
+                      <img
+                        style="
+                          width: 100%;
+                          height: auto;
+                          border-radius: 15px;
+                          padding: 5px;
+                        "
+                        src="<%= room.uploadImage %>"
+                        alt=""
+                      />
+                    </div>
+
+                    <div class="down-content" style="padding: 5px">
+                        <a href="/viewroom/<%= room._id %>" style="text-decoration: none"><h4><%= room.title %></h4></a>
+
+                      <p style="color: crimson; font-size: 20px">
+                        Giá: <%= room.cost %> vnđ
+                      </p>
+                      <p style="font-size: 18px">Khu vực: <%= room.wards %></p>
+                      <p><%= room.description %></p>
+                    </div>
+                  </div>
+                </div>
+                <% }); %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12"></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/extention/choices.js"></script>
+    <script>
+      const customSelects = document.querySelectorAll("select");
+      const deleteBtn = document.getElementById("delete");
+      const choices = new Choices("select", {
+        searchEnabled: false,
+        itemSelectText: "",
+        removeItemButton: true,
+      });
+      deleteBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const deleteAll = document.querySelectorAll(".choices__button");
+        for (let i = 0; i < deleteAll.length; i++) {
+          deleteAll[i].click();
+        }
+      });
+    </script>
+    <script src="/js/motel/custom.js"></script>
+    <script src="/js/motel/owl.js"></script>
+    <script src="/js/motel/slick.js"></script>
+    <script src="/js/motel/isotope.js"></script>
+    <script src="/js/motel/accordions.js"></script>
+  </section>
 </main>

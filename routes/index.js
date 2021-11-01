@@ -55,8 +55,15 @@ router
         }
     )
 
+    // .get(
+    //     '/motel',
+    //     HomeCtrl.motelPage
+    // )
+
+
     .get(
         '/motel',
+        isLoggedIn,
         HomeCtrl.motel
     )
 
@@ -76,6 +83,18 @@ router
     .post(
         '/contact',
         HomeCtrl.contact
+    )
+
+    .get(
+        '/viewroom/:id',
+        isLoggedIn,
+        HomeCtrl.viewroom,
+    )
+
+    .get(
+        '/viewprofile/:id',
+        isLoggedIn,
+        HomeCtrl.viewprofile,
     )
 
     .get(
