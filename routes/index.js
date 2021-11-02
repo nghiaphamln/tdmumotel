@@ -113,6 +113,17 @@ router
         HomeCtrl.changePasswordPage
     )
 
+    .get(
+        '/booking-room',
+        isLoggedIn,
+        HomeCtrl.bookingroomPage
+    )
+
+    .post(
+        '/booking-room',
+        HomeCtrl.bookingroom
+    )
+
     .post('/change-password',
         HomeCtrl.changePassword
     )
