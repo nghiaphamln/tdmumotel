@@ -1,6 +1,7 @@
 const UserModel = require('../models/user.model');
 const ContactModel = require('../models/contact.model');
 var PostModel = require('../models/motel.model');
+var BookingModel = require('../models/booking.model');
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 const async = require('async');
@@ -479,6 +480,33 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+
+    static bookingroom(req, res) {
+        var description = req.body.description;
+        var wards = req.body.wards;
+        var cost = req.body.cost; 
+        var roomType = req.body.roomType;
+
+        var newPost = new BookingModel();
+        newPost.user = req.user._id;
+        newPost.description = description;
+        newPost.wards = wards;
+        newPost.cost = cost;
+        newPost.roomType = roomType;
+        newPost.save();
+
+        req.flash('success', 'Đăng ký thành công. Chúng tôi sẽ gửi mail thông báo cho bạn khi tìm được phòng phù hợp với các lựa chọn của bạn');
+        return res.redirect('/booking-room');
+    }
+
+    static bookingroomPage(req, res) {
+        try {
+            res.render('bookingroom', {title: 'Đăng ký tìm phòng', page_name: 'bookingroom', user: req.user, success: req.flash('success')});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
+
     static getnewPasswordPage(req, res) {
         try {
             UserModel.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function (err, user) {
