@@ -227,12 +227,13 @@ class HomeController {
     static async viewroom(req, res) {
         try {
             var listPostID = await PostModel.findOne({_id: req.params.id});
-            var userPost = await UserModel.findOne({_id: req.user})
+            var userPost = await UserModel.findOne({_id: listPostID.userid})
+            console.log(listPostID.userid)
             res.render('viewroom', {
                 userPost: userPost,
                 title: "Chi tiết phòng",
                 page_name: 'viewroom',
-                user: req.user,
+                user: req.userid,
                 _id: req.id,
                 listPostID: listPostID,
                 title: req.title,
@@ -246,7 +247,7 @@ class HomeController {
                 ultilities: req.ultilities,
                 roomType: req.roomType,
                 uploadImage: req.uploadImage,
-                
+                user: req.user,
             });
         }
         catch (e) {
@@ -261,7 +262,8 @@ class HomeController {
             res.render('viewprofile', {
                 userPost: userPost,
                 title: "Thông tin chủ trọ",
-                page_name: 'viewprofile',                
+                page_name: 'viewprofile',   
+                user: req.user,       
             });
         }
         catch (e) {
@@ -341,9 +343,6 @@ class HomeController {
                     var address = req.body.address;
                     var email = req.body.email;
                     var phone = req.body.phone;
-                    console.log("Hình nè")
-                    console.log(req.file)
-                    console.log(req.file.filename)
                     try {
                         var avatar = '/uploads/' + req.file.filename;
                     }

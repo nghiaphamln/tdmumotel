@@ -29,6 +29,18 @@ router
         AdminCtrl.xemphanhoi
     )
 
+    .get(
+        '/viewroom/:id',
+        isAdmin,
+        AdminCtrl.viewRoomID,
+    )
+
+    .get(
+        '/viewprofile/:id',
+        isAdmin,
+        AdminCtrl.viewprofile,
+    )
+
 module.exports = router;
 
 function isAdmin(req, res, next) {

@@ -36,7 +36,7 @@
                             
                                 <% listUser.forEach(function(member) { %>   
                             <tr>         
-                                    <td> <%= member._id %>  </td>
+                                    <td><a href="/admin/viewprofile/<%= member._id %>" style="text-decoration: none; color: white;"><%= member._id %></a></td>
                                     <td> <%= member.name %> </td>
                                     <td> <%= member.email %>  </td>
                                     <td> <%= member.phoneNumber %>  </td>
