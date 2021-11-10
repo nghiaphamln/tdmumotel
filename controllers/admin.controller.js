@@ -40,7 +40,7 @@ class AdminController {
     static async xemphanhoi(req, res, next) {
         
         try {
-            var listContact = await ContactModel.find({}); 
+            var listContact = await ContactModel.find().sort({time: -1}); 
             res.render('admin/xemphanhoi', { title: 'Phản hồi từ thành viên', page_name: 'xemphanhoi', user: req.user, listContact: listContact});
         } catch {
             res.status(500).send(exception);
