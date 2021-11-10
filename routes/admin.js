@@ -6,6 +6,7 @@ const AdminCtrl = require('../controllers/admin.controller');
 router
     .get(
         '/qlbaidang',
+        isAdmin,
         AdminCtrl.qlbaidang
     )
     .get(
@@ -14,6 +15,7 @@ router
     )
     .get(
         '/qlthanhvien',
+        isAdmin,
         AdminCtrl.qlthanhvien
     )
     .get(
@@ -27,7 +29,15 @@ router
 
     .get(
         '/xemphanhoi',
+        isAdmin,
         AdminCtrl.xemphanhoi
     )
 
 module.exports = router;
+
+function isAdmin(req, res, next) {
+    if (req.isAuthenticated() && req.user.permission >= 2) {
+        return next();
+    }
+    res.redirect('/');
+}
