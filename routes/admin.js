@@ -41,6 +41,12 @@ router
         AdminCtrl.viewprofile,
     )
 
+    .get(
+        '/addmember',
+        isAdmin,
+        AdminCtrl.AddMemberPage
+    )
+
 module.exports = router;
 
 function isAdmin(req, res, next) {

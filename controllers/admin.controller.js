@@ -93,5 +93,15 @@ class AdminController {
             res.status(500).send(exception);
         }
     }
+
+    static async AddMember(req, res, next) {
+        
+        try {
+            var listContact = await ContactModel.find({}); 
+            res.render('/addmember', { title: 'Thêm quản trị viên', page_name: 'addmember', user: req.user, listContact: listContact});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
 }
 module.exports = AdminController;
