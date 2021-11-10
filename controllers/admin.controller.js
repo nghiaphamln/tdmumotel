@@ -87,7 +87,7 @@ class AdminController {
     static async xemphanhoi(req, res, next) {
         
         try {
-            var listContact = await ContactModel.find({}); 
+            var listContact = await ContactModel.find().sort({time: -1}); 
             res.render('admin/xemphanhoi', { title: 'Phản hồi từ thành viên', page_name: 'xemphanhoi', user: req.user, listContact: listContact});
         } catch {
             res.status(500).send(exception);
@@ -102,6 +102,12 @@ class AdminController {
         } catch {
             res.status(500).send(exception);
         }
+    }
+    static async deleteRoom(req, res, next) {
+        
+        var postID = req.params.id;
+        await PostModel.deleteOne({_id: postID});
+        res.redirect('admin/qlbaidang');
     }
 }
 module.exports = AdminController;
