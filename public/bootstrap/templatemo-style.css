@@ -153,14 +153,14 @@ button:focus {
 }
 
 .table {
-    background-color: #50697f;
+    background-color: #2574A9;
     color: #fff;
     font-size: 85%;
     margin-bottom: 0;
 }
 
 thead {
-    background-color: #486177;
+    background-color: #2574A9;
     color: #fff;
 }
 
@@ -317,7 +317,7 @@ thead {
 
 .btn-primary {
     color: #fff;
-    background-color: #415a70;
+    background-color: #2574A9;
     border: 2px solid #415a70;
     font-size: 90%;
     font-weight: 600;
