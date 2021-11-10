@@ -9,13 +9,19 @@
             <div class="container-center ">
                 
                 <div class="row">
+                    <% if (user.permission == 3) {%>
                     <div class="col canphai">
                       <a href="" class="btn btn-primary btn-small mb-3">Thêm thành viên</a>
                     </div>
-
+                    
                     <div class="col">
                       <a href="xemphanhoi" class="btn btn-primary btn-small mb-3">Xem phản hồi</a>
                     </div>
+                    <% } else { %>
+                        <div class="col text-center">
+                            <a href="xemphanhoi" class="btn btn-primary btn-small mb-3">Xem phản hồi</a>
+                          </div>
+                    <% } %>  
                 </div>
                 <div class="tm-product-table-container">
                     <table class="table table-hover tm-table-small tm-product-table">
