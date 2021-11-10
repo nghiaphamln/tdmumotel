@@ -18,16 +18,31 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
-    <% if (page_name == 'motel') { %> <link rel="stylesheet" href="/css/main.css"> <% } %>  
+        <% if (page_name == 'index') { %> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/><% } %>  
+    
+    <% if (page_name == 'motel') { %> 
+        <link rel="stylesheet" href="/css/main.css">   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/motel/fontawesome.css"> 
+        <link rel="stylesheet" href="/css/motel/owl.css"> 
+        <% } %>  
     <% if (page_name == 'intropay') { %> <link rel="stylesheet" href="/css/nicepage.css"> <link rel="stylesheet" href="/css/intropayhome.css"> <% } %>  
     <% if (page_name == 'qlbaidang' || page_name == 'qlthanhvien' || page_name == 'xemphanhoi' ) { %>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-      <link rel="stylesheet" href="/bootstrap/templatemo-style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+        <link rel="stylesheet" href="/bootstrap/templatemo-style.css">
     <% } %>
     <% if (page_name == 'profile') { %> <link rel="stylesheet" href="/css/profile.css"> <% } %>  
-    <% if (page_name == 'contact') { %> <link rel="stylesheet" href="/css/contact.css">     
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/><% } %>  
+    <% if (page_name == 'contact') { %> 
+        <link rel="stylesheet" href="/css/contact.css">     
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/><% } %>  
+
+    <% if (page_name == 'addnewroom' || page_name == 'listroom' || page_name == 'roominfo' ) { %>
+        <link rel="stylesheet" href="/css/owner/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/owner/fontawesome.min.css" />
+        <link rel="stylesheet" href="/css/owner/templatemo-style.css" />
+      <% } %>
 </head>
 
 <body>

@@ -7,58 +7,132 @@
   </section>
   <section class="clean-block clean-info dark">
     <div class="container">
-      <div class="block-heading">
-        <h2 class="text-info">Info</h2>
-        <p>Sửa nội dung</p>
+      <div class="block-heading" id="phong">
+        <h2 class="text-info">Phòng trọ</h2>
+        <p>Danh sách các phòng trọ trong khu vực Thủ Dầu Một</p>
       </div>
-      <div class="row align-items-center">
-        <div class="col-md-6"><img class="img-thumbnail" src="img/scenery/image5.jpg"></div>
-        <div class="col-md-6">
-          <h3>Lorem impsum dolor sit amet</h3>
-          <div class="getting-started-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          </div><button class="btn btn-outline-primary btn-lg" type="button">Join Now</button>
+      <div class="products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="filters-content">
+                <div class="row grid">
+   <% listroom.forEach(function(room) { %>
+                    <div class="col-lg-4 col-md-4 all des">
+                     
+                    <div class="product-item" style="margin: 5px;  border-radius: 15px; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+                      <div >
+                        <img style="width: 100%; height: auto; border-radius: 15px; padding: 5px;" src="<%= room.uploadImage %>" alt=""
+                      /></div>
+  
+                      <div class="down-content" style="padding: 5px;">
+                        <a href="/viewroom/<%= room._id %>" style="text-decoration: none"><h4><%= room.title %></h4></a>
+                        <p style="color: crimson; font-size: 20px;">Giá: <%= room.cost %> vnđ</p>
+                        <p style=" font-size: 18px;">Khu vực: <%= room.wards %></p>
+                        <p>
+                          <%= room.description %>
+                        </p>
+  
+                      </div>
+                    </div>
+                        
+                  </div>
+  <% }); %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12"></div>
+          </div>
         </div>
       </div>
+      <script src="js/extention/choices.js"></script>
+      <script>
+        const customSelects = document.querySelectorAll("select");
+        const deleteBtn = document.getElementById("delete");
+        const choices = new Choices("select", {
+          searchEnabled: false,
+          itemSelectText: "",
+          removeItemButton: true,
+        });
+        deleteBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          const deleteAll = document.querySelectorAll(".choices__button");
+          for (let i = 0; i < deleteAll.length; i++) {
+            deleteAll[i].click();
+          }
+        });
+      </script>
+      <script src="/js/motel/custom.js"></script>
+      <script src="/js/motel/owl.js"></script>
+      <script src="/js/motel/slick.js"></script>
+      <script src="/js/motel/isotope.js"></script>
+      <script src="/js/motel/accordions.js"></script>
     </div>
   </section>
   <section class="clean-block features">
     <div class="container">
       <div class="block-heading">
-        <h2 class="text-info">Features</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
-          <h4>Bootstrap 4</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-        </div>
-        <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
-          <h4>Customizable</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-        </div>
-        <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
-          <h4>Responsive</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-        </div>
-        <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
-          <h4>All Browser Compatibility</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-        </div>
+        <h2 class="text-info">Liên hệ</h2>
+        
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+              <div class="wrapper">
+                  <div class="row mb-5">
+                      <div class="col-md-3">
+                          <div class="dbox w-100 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span style="font-size: 40px;" class="fa fa-map-marker"></span>
+                      </div>
+                      <div class="text">
+                      <p style="font-size: 20px;"><span>Địa chỉ:</span> 43, Trần Văn Ơn, Phú Hòa, Thủ Dầu Một, Bình Dương</p>
+                    </div>
+                </div>
+                      </div>
+                      <div class="col-md-3">
+                          <div class="dbox w-100 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span style="font-size: 40px;" class="fa fa-phone"></span>
+                      </div>
+                      <div class="text">
+                      <p style="font-size: 20px;"><span>Điện thoại:</span> <a href="tel://1234567920"></a> <br>0907944628</a></p>
+                    </div>
+                </div>
+                      </div>
+                      <div class="col-md-3">
+                          <div class="dbox w-100 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span style="font-size: 40px;" class="fa fa-paper-plane"></span>
+                      </div>
+                      <div class="text">
+                      <p style="font-size: 20px;"><span>Email:</span> <a href=doanchuyennganh02@gmail.com">doanchuyennganh02@</a></p>
+                    </div>
+                </div>
+                      </div>
+                      <div class="col-md-3">
+                          <div class="dbox w-100 text-center">
+                      <div class="icon d-flex align-items-center justify-content-center">
+                          <span style="font-size: 40px;" class="fa fa-facebook"></span>
+                      </div>
+                      <div class="text">
+                     <p style="font-size: 20px;"><span>Facebook</span>  <a href="https://www.facebook.com/thongnguyenlvl/">fb.com/thongnguyenlvl/</a></p>
+                    </p></div>
+                </div>
+                      </div>
+                  </div>
       </div>
     </div>
   </section>
   <section class="clean-block slider dark">
     <div class="container">
       <div class="block-heading">
-        <h2 class="text-info">Slider</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+        <h2 class="text-info">Xem dạng thẻ</h2>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p> -->
       </div>
       <div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
         <div class="carousel-inner">
-          <div class="carousel-item active"><img class="w-100 d-block" src="img/scenery/image1.jpg" alt="Slide Image"></div>
-          <div class="carousel-item"><img class="w-100 d-block" src="img/scenery/image4.jpg" alt="Slide Image"></div>
-          <div class="carousel-item"><img class="w-100 d-block" src="img/scenery/image6.jpg" alt="Slide Image"></div>
+          <div class="carousel-item active"><img class="w-100 d-block" src="img/motelroom/phong10.jpg" alt="Slide Image"></div>
+          <div class="carousel-item"><img class="w-100 d-block" src="img/motelroom/phong2.jpg" alt="Slide Image"></div>
+          <div class="carousel-item"><img class="w-100 d-block" src="img/motelroom/phong3.jpg" alt="Slide Image"></div>
         </div>
         <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
         <ol class="carousel-indicators">
@@ -67,6 +141,16 @@
           <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
         </ol>
       </div>
+    </div>
+  </section>
+
+  <section class="clean-block slider dark">
+    <div class="container">
+      <div class="block-heading">
+        <h2 class="text-info">Xem địa chỉ</h2>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p> -->
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d62639.67177817253!2d106.6696704!3d11.114905600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1635778459537!5m2!1svi!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </section>
 </main>

@@ -55,8 +55,15 @@ router
         }
     )
 
+    // .get(
+    //     '/motel',
+    //     HomeCtrl.motelPage
+    // )
+
+
     .get(
         '/motel',
+        isLoggedIn,
         HomeCtrl.motel
     )
 
@@ -79,6 +86,18 @@ router
     )
 
     .get(
+        '/viewroom/:id',
+        isLoggedIn,
+        HomeCtrl.viewroom,
+    )
+
+    .get(
+        '/viewprofile/:id',
+        isLoggedIn,
+        HomeCtrl.viewprofile,
+    )
+
+    .get(
         '/reset-password',
         HomeCtrl.resetPasswordPage
     )
@@ -92,6 +111,17 @@ router
         '/change-password',
         isLoggedIn,
         HomeCtrl.changePasswordPage
+    )
+
+    .get(
+        '/booking-room',
+        isLoggedIn,
+        HomeCtrl.bookingroomPage
+    )
+
+    .post(
+        '/booking-room',
+        HomeCtrl.bookingroom
     )
 
     .post('/change-password',
@@ -118,6 +148,9 @@ router
 
     .post('/profile',
     HomeCtrl.profile)
+
+
+    
 
     .get(
         '/auth/facebook/callback',

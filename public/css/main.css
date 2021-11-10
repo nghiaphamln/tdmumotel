@@ -811,14 +811,12 @@ html {
   }
   
   .s009 {
-    min-height: 100vh;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
         justify-content: center;
     -ms-flex-align: center;
-        align-items: center;
-    background: #d9eff5;
+    background: #f6f6f6;
     padding: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
@@ -896,14 +894,14 @@ html {
   }
   
   .s009 form .inner-form .input-field .btn-delete {
-    min-width: 100px;
+    width: 80px;
     height: 40px;
     padding: 0 15px;
-    background: transparent;
+    background: #0eb37c;
     white-space: nowrap;
     border-radius: 0;
     font-size: 14px;
-    color: #666;
+    color: rgb(255, 255, 255);
     transition: all .2s ease-out, color .2s ease-out;
     border: 0;
     cursor: pointer;
@@ -911,8 +909,9 @@ html {
   }
   
   .s009 form .inner-form .input-field .btn-delete:hover, .s009 form .inner-form .input-field .btn-delete:focus {
-    color: #000;
+    color: rgb(255, 255, 255);
     outline: 0;
+    background: #098f62;
     box-shadow: none;
   }
   
@@ -949,12 +948,12 @@ html {
   
   .s009 form .inner-form .advance-search {
     background: #fff;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   }
   
   .s009 form .inner-form .advance-search .desc {
-    font-size: 14px;
+    font-size: 16px;
     color: #999;
     display: block;
     margin-bottom: 26px;

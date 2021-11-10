@@ -1,9 +1,13 @@
 const UserModel = require('../models/user.model');
 const ContactModel = require('../models/contact.model');
+var PostModel = require('../models/motel.model');
+var BookingModel = require('../models/booking.model');
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
 const async = require('async');
+const querystring = require('querystring');
 const nodemailer = require('nodemailer')
+const regexp = require('regexp')
 
 var multer = require('multer');
 var storage = multer.diskStorage({
@@ -27,9 +31,10 @@ var upload = multer({
 }).single("Image");
 
 class HomeController {
-    static index(req, res) {
+    static async index(req, res) {
         try {
-            res.render('index', { title: 'Trang chủ', page_name: 'index', user: req.user });
+            var listroom = await PostModel.find({});
+            res.render('index', { title: 'Trang chủ', page_name: 'index', user: req.user, listroom: listroom });
         } catch (exception) {
             res.status(500).send(exception);
         }
@@ -59,12 +64,156 @@ class HomeController {
         }
     }
 
-    static motel(req, res) {
-        try {
-            res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user });
-        } catch {
-            res.status(500).send(exception);
+    // static motelPage(req, res) {
+    //     try {
+    //         var listroom = await PostModel.find({});
+    //         res.render('motel', { title: 'Phòng trọ', page_name: 'motel', listroom: listroom});
+    //     } catch {
+    //         res.status(500).send(exception);
+    //     }
+    // }
+
+
+
+    static async motel(req, res) {
+        var roomType = req.query.roomType;
+        var wards = req.query.wards;
+        var cost = req.query.cost;
+        var keyword = req.query.keyword;
+        var listroom = await PostModel.find({});
+        console.log(roomType)
+        console.log(wards)
+        console.log(cost)
+        console.log(keyword)
+
+        if (keyword != null)
+        {
+            var listroom = await PostModel.find({$or: [{roomType: new RegExp(keyword)}, 
+                {wards: new RegExp(keyword)}, {description: new RegExp(keyword)}, {title: new RegExp(keyword)}]});
+            console.log(listroom)
+            res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user, listroom: listroom, roomType: roomType, wards: wards, cost: cost, keyword: keyword, messages: req.flash('fail')});
         }
+        else if (roomType != null || wards != null || cost != null)
+        {
+        // {
+        //     if (cost == null)
+        //     {
+        //         if (roomType == null) {
+        //             var listroom = await PostModel.find({wards: wards});
+        //             res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user, listroom: listroom, roomType: roomType, wards: wards, cost: cost, keyword: keyword, messages: req.flash('fail') });
+
+        //         }
+        //         else if (wards == null)
+        //         {
+        //             var listroom = await PostModel.find({roomType: roomType});
+        //         }
+        //         var listroom = await PostModel.find({roomType: roomType}, {wards: wards});
+        //         res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user, listroom: listroom, roomType: roomType, wards: wards, cost: cost, keyword: keyword, messages: req.flash('fail') });
+
+        //     }
+        //     else if (roomType == null) {
+        //         if (cost == null) {
+        //             var listroom = await PostModel.find({wards: wards});
+        //         }
+        //         else if (wards == null) {
+        //             if (cost == "Dưới 1 triệu")
+        //             {
+        //                 var listroom = await PostModel.find({cost: {$lt: 1000000}});
+        //                 console.log(listroom)
+        //             }
+        //             else if (cost == "Từ 1 triệu đến 1,5 triệu")
+        //             {
+        //                 var listroom =  await PostModel.find({cost: {$gte: 1000000, $lte: 1500000}});
+        //                 console.log(listroom)
+        //             }
+        //             else 
+        //             {
+        //                 var listroom = await PostModel.find({cost: {$gt: 1500000}});
+        //                 console.log(listroom)
+        //             }
+        //         }
+        //         else {
+        //             if (cost == "Dưới 1 triệu")
+        //             {
+        //                 var listroom = await PostModel.find({$and: [{wards: wards}, {cost: {$lt: 1000000}}]});
+        //                 console.log(listroom)
+        //             }
+        //             else if (cost == "Từ 1 triệu đến 1,5 triệu")
+        //             {
+        //                 var listroom =  await PostModel.find({$and: [{wards: wards}, {cost: {$gte: 1000000, $lte: 1500000}}]});
+        //                 console.log(listroom)
+        //             }
+        //             else 
+        //             {
+        //                 var listroom = await PostModel.find({$and: [{wards: wards}, {cost: {$gt: 1500000}}]});
+        //                 console.log(listroom)
+        //             }
+        //         }
+        //         res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user, listroom: listroom, roomType: roomType, wards: wards, cost: cost, keyword: keyword, messages: req.flash('fail')});
+        //     }
+        //     else if (wards == null) {
+        //         if (cost == null) {
+        //             var listroom = await PostModel.find({roomType: roomType});
+        //         }
+        //         else if (roomType == null) {
+        //             if (cost == "Dưới 1 triệu")
+        //             {
+        //                 var listroom = await PostModel.find({cost: {$lt: 1000000}});
+        //                 console.log(listroom)
+        //             }
+        //             else if (cost == "Từ 1 triệu đến 1,5 triệu")
+        //             {
+        //                 var listroom =  await PostModel.find({cost: {$gte: 1000000, $lte: 1500000}});
+        //                 console.log(listroom)
+        //             }
+        //             else 
+        //             {
+        //                 var listroom = await PostModel.find({cost: {$gt: 1500000}});
+        //                 console.log(listroom)
+        //             }
+        //         }
+        //         else {
+        //             if (cost == "Dưới 1 triệu")
+        //             {
+        //                 var listroom = await PostModel.find({$and: [{roomType: roomType}, {cost: {$lt: 1000000}}]});
+        //                 console.log(listroom)
+        //             }
+        //             else if (cost == "Từ 1 triệu đến 1,5 triệu")
+        //             {
+        //                 var listroom =  await PostModel.find({$and: [{roomType: roomType}, {cost: {$gte: 1000000, $lte: 1500000}}]});
+        //                 console.log(listroom)
+        //             }
+        //             else 
+        //             {
+        //                 var listroom = await PostModel.find({$and: [{roomType: roomType}, {cost: {$gt: 1500000}}]});
+        //                 console.log(listroom)
+        //             }
+        //         }
+        //         res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user, listroom: listroom, roomType: roomType, wards: wards, cost: cost, keyword: keyword, messages: req.flash('fail') });
+
+        //     }
+            // else 
+            if (cost == "Dưới 1 triệu")
+            {
+                var listroom = await PostModel.find({$and: [{roomType: roomType}, {wards: wards}, {cost: {$lt: 1000000}}]});
+                console.log(listroom)
+            }
+            else if (cost === "Từ 1 triệu đến 1,5 triệu")
+            {
+                var listroom =  await PostModel.find({$and: [{roomType: roomType}, {wards: wards}, {cost: {$gte: 1000000, $lte: 1500000}}]});
+                console.log(listroom)
+            }
+            else 
+            {
+                var listroom = await PostModel.find({$and: [{roomType: roomType}, {wards: wards}, {cost: {$gt: 1500000}}]});
+                console.log(listroom)
+            }
+            res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user, listroom: listroom, roomType: roomType, wards: wards, cost: cost, keyword: keyword, messages: req.flash('fail') });
+        }
+        
+        console.log(listroom)
+        res.render('motel', { title: 'Phòng trọ', page_name: 'motel', user: req.user, listroom: listroom, roomType: roomType, wards: wards, cost: cost, keyword: keyword, messages: req.flash('fail')});
+        
     }
 
     static contactPage(req, res) {
@@ -72,6 +221,51 @@ class HomeController {
             res.render('contact', { title: 'Phản hồi', page_name: 'contact', user: req.user, success: req.flash('success'), messages: req.flash('contactMessage')});
         } catch {
             res.status(500).send(exception);
+        }
+    }
+
+    static async viewroom(req, res) {
+        try {
+            var listPostID = await PostModel.findOne({_id: req.params.id});
+            var userPost = await UserModel.findOne({_id: req.user})
+            res.render('viewroom', {
+                userPost: userPost,
+                title: "Chi tiết phòng",
+                page_name: 'viewroom',
+                user: req.user,
+                _id: req.id,
+                listPostID: listPostID,
+                title: req.title,
+                description: req.description,
+                streetName: req.streetName,
+                district: req.district,
+                wards: req.wards,
+                water: req.water,
+                electric: req.electric,
+                cost: req.cost,
+                ultilities: req.ultilities,
+                roomType: req.roomType,
+                uploadImage: req.uploadImage,
+                
+            });
+        }
+        catch (e) {
+            res.status(200).send('Error manager!');
+        }
+    }
+
+    static async viewprofile(req, res) {
+        try {
+            var userPost = await UserModel.findOne({_id: req.params.id})
+            console.log(userPost)  
+            res.render('viewprofile', {
+                userPost: userPost,
+                title: "Thông tin chủ trọ",
+                page_name: 'viewprofile',                
+            });
+        }
+        catch (e) {
+            res.status(200).send('Error manager!');
         }
     }
 
@@ -149,6 +343,7 @@ class HomeController {
                     var phone = req.body.phone;
                     console.log("Hình nè")
                     console.log(req.file)
+                    console.log(req.file.filename)
                     try {
                         var avatar = '/uploads/' + req.file.filename;
                     }
@@ -285,6 +480,33 @@ class HomeController {
             res.status(500).send(exception);
         }
     }
+
+    static bookingroom(req, res) {
+        var description = req.body.description;
+        var wards = req.body.wards;
+        var cost = req.body.cost; 
+        var roomType = req.body.roomType;
+
+        var newPost = new BookingModel();
+        newPost.user = req.user._id;
+        newPost.description = description;
+        newPost.wards = wards;
+        newPost.cost = cost;
+        newPost.roomType = roomType;
+        newPost.save();
+
+        req.flash('success', 'Đăng ký thành công. Chúng tôi sẽ gửi mail thông báo cho bạn khi tìm được phòng phù hợp với các lựa chọn của bạn');
+        return res.redirect('/booking-room');
+    }
+
+    static bookingroomPage(req, res) {
+        try {
+            res.render('bookingroom', {title: 'Đăng ký tìm phòng', page_name: 'bookingroom', user: req.user, success: req.flash('success')});
+        } catch {
+            res.status(500).send(exception);
+        }
+    }
+
     static getnewPasswordPage(req, res) {
         try {
             UserModel.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function (err, user) {
