@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 const passport = require('passport');
 const session = require('express-session');
 
-
+const ownerRouter = require('./routes/owner');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
@@ -58,6 +58,7 @@ require('./config/passport')(passport);
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
+app.use('/owner', ownerRouter);
 app.use('/users', usersRouter);
 app.use('/owner', ownerRouter);
 
