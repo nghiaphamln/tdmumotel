@@ -160,9 +160,38 @@ button:focus {
 }
 
 thead {
-    background-color: #2574A9;
+    background-color: #2574A9; 
     color: #fff;
+    
 }
+
+/**/
+table {
+    table-layout: fixed;
+  }
+   
+  thead {
+    
+    display: table;
+    width: 100%;
+    width: calc(100% - 18px);
+  }
+  
+  tbody {
+    height: 400px;
+    overflow: auto;
+    display: block;
+    width: 100%;
+
+  }
+  tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+/**/
+
 
 .table thead th {
     border-bottom: 0;
@@ -345,6 +374,21 @@ thead {
     vertical-align: middle;
 }
 
+.tdphanhoi{
+    width: 50%;
+}
+.tdtentv{
+    width: 15%;
+}
+.td15{
+    width: 15%;
+}
+.td20{
+    width: 20%;
+}
+.td10{
+    width: 6%;
+}
 .tm-table-small td,
 .tm-table-small th {
     padding-left: 12px;
@@ -439,7 +483,6 @@ input[type="checkbox"]:focus {
 .tm-product-table-container {
     max-height: 465px;
     margin-bottom: 15px;
-    overflow-y: scroll;
 }
 
 .tm-product-table tr {
