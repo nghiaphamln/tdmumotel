@@ -46,5 +46,12 @@ class AdminController {
             res.status(500).send(exception);
         }
     }
+
+    static async deleteRoom(req, res, next) {
+        
+        var postID = req.params.id;
+        await PostModel.deleteOne({_id: postID});
+        res.redirect('admin/qlbaidang');
+    }
 }
 module.exports = AdminController;
