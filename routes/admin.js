@@ -32,7 +32,11 @@ router
         isAdmin,
         AdminCtrl.xemphanhoi
     )
-
+    .get(
+        '/delete-room/:id',
+        isAdmin,
+        AdminCtrl.deleteRoom
+    )
 module.exports = router;
 
 function isAdmin(req, res, next) {

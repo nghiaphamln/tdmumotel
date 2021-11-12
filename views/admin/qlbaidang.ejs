@@ -23,6 +23,14 @@
                                 <th scope="col">TRẠNG THÁI</th>
                                 <th scope="col">XOÁ</th>
                                 <th scope="col">XEM</th>
+                                <th scope="col" class="td15">TIÊU ĐỀ</th>
+                                <th scope="col" class="td20">MÔ TẢ</th>
+                                <th scope="col" class="td20">ĐỊA CHỈ</th>
+                                <th scope="col" class="td15">GIÁ TIỀN</th>
+                                <th scope="col" class="td15">THỜI GIAN ĐĂNG BÀI</th>
+                                <th scope="col" class="td15">TRẠNG THÁI</th>
+                                <th scope="col" class="td10">&nbsp;</th>
+                                <th scope="col" class="td10">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,12 +44,22 @@
                                 <td>chờ duyệt</td>
                                 <td>
                                 </a>
+
+                                <td class="tm-product-name td15">PHÒNG TRỌ ĐẦU TIÊN</td>
+                                <td class="td20">This is mô tả</td>
+                                <td class="td20">LosAngeles</td>
+                                <td class="td15">1500000</td>
+                                <td class="td15">15/11</td>
+                                <td class="td15">chờ duyệt</td>
+                                <td class="td10">
                                     <a href="#" class="tm-product-delete-link">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
                                 <td>
                                     <a href="duyetbai" class="tm-product-delete-link">
+                                <td class="td10">
+                                    <a href="/admin/delete-room/<%= member._id %>" class="tm-product-delete-link" onclick="return confirm('Bạn muốn xóa bài này khum?');">
                                         <i class="fas fa-check-circle"></i>
                                     </a>
                                 </td>
