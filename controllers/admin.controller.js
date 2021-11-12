@@ -132,12 +132,12 @@ class AdminController {
                         'Đây là trả lời của chúng tôi về phản hồi của bạn: ' + content + '.\n'
                 };
                 smtpTransport.sendMail(mailOptions)
-                var contactID = req.params.id;
-                ContactModel.findOne({id: contactID}, (err, doc) => {
+                ContactModel.findOne({_id: req.params.id}, (err, doc) => {
                     doc.status = 1;
-                    doc.save();
+                    doc.save(); 
                 });
-                res.redirect('/admin/xemphanhoi');
+               
+                return res.redirect('/admin/xemphanhoi');
             }
         ], function (err) {
             
@@ -194,7 +194,7 @@ class AdminController {
         var User = new UserModel();
         User.email = email;
         User.phone = phone;
-        User.name = name;
+        User.permission = 2;
         User.password = password;
         
         User.save();
