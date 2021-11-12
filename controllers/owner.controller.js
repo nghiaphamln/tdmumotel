@@ -70,7 +70,7 @@ class OwnerController {
                         var uploadImage = null;
                     }
                     var newPost = new PostModel();
-                    newPost.user = req.user._id;
+                    newPost.userid = req.user._id;
                     newPost.title = title;
                     newPost.description = description;
                     newPost.streetName = streetName;
@@ -100,7 +100,7 @@ class OwnerController {
     static async listroom(req, res, next) {
         console.log(req.user.id)
         try {
-            var listRoom = await PostModel.find({user: req.user.id});  
+            var listRoom = await PostModel.find({userid: req.user.id});  
             console.log(listRoom)
             res.render('owner/listroom', { title: 'Danh sách phòng', page_name: 'listroom', user: req.user, listRoom: listRoom });
         } catch {
@@ -118,7 +118,7 @@ class OwnerController {
     static async viewRoomID(req, res, next) {
         try {
             var listPostID = await PostModel.findOne({_id: req.params.id});
-  
+
             res.render('owner/editroom', {
                 title: 'Chi tiết phòng',
                 page_name: 'editroom',

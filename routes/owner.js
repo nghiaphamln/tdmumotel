@@ -47,6 +47,7 @@ module.exports = router;
 
     .get(
         '/roominfo',
+        isLoggedIn,
         OwnerCtrl.roominfo
     )
 

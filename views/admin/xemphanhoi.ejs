@@ -17,17 +17,20 @@
 
                                 <th scope="col" class="tdtentv header">TÊN THÀNH VIÊN</th>
                                 <th scope="col" class="tdtentv header">TIÊU ĐỀ</th>
-                                <th scope="col" class="tdphanhoi header">PHẢN HỒI</th>
-                                <th scope="col" class="header">THỜI GIAN</th>
+                                <th scope="col" class="tdtentv header">PHẢN HỒI</th>
+                                <th scope="col" class="tdtentv header">TRẠNG THÁI</th>
+                                <th scope="col" class="tdtentv header">THỜI GIAN</th>
                             </tr>
                         </thead >
                         <tbody>
                             <% listContact.forEach(function(phanhoi) { %>   
                                 <tr>         
-                                        <td class="tdtentv"> <%= phanhoi.name %>  </td>
+                                        <td class="tdtentv"><a href="/admin/replycontact/<%= phanhoi.id %>" style="text-decoration: none; color: white;"> <%= phanhoi.name %></a>  </td>
                                         <td class="tdtentv"> <%= phanhoi.title %> </td>
                                         <td class="tdphanhoi"> <%= phanhoi.content %></td>
-                                        <td> <%= phanhoi.time %></td>
+                                        <td> <% if (phanhoi.status == 0) { %> Chưa trả lời <% } else { %> Đã trả lời <% } %>   </td>
+                                        <td class="tdphanhoi"> <%= phanhoi.time %></td>
+                                        
                                 </tr>
                             <% }); %>
 

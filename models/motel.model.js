@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 var MotelModelSchema = new Schema({
-    user: {type: String},
+    userid: {type: String},
     title: {type: String},
     description: {type: String},
     streetName: {type: String},
