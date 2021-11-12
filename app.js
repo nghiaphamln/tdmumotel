@@ -18,7 +18,6 @@ const ownerRouter = require('./routes/owner');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
-const ownerRouter = require('./routes/owner');
 const paymentRouter = require('./routes/payment');
 
 const expressLayouts = require('express-ejs-layouts');
@@ -60,8 +59,7 @@ app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/owner', ownerRouter);
 app.use('/users', usersRouter);
-app.use('/owner', ownerRouter);
-
+app.use('/payment', paymentRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

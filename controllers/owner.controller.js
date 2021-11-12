@@ -1,7 +1,3 @@
-class OwnerController {
-    static managementRoom(req, res) {
-        try {
-            res.render('owner/managementRoom', { title: 'Quản lý phòng trọ', page_name: 'managementRoom', user: req.user });
 var UserModel = require('../models/user.model');
 var PostModel = require('../models/motel.model');
 var ContactModel = require('../models/contact.model');

@@ -4,14 +4,7 @@ var router = express.Router();
 const OwnerCtrl = require('../controllers/owner.controller');
 
 router
-    .get(
-        '/quan-li-phong-tro',
-        OwnerCtrl.managementRoom
-    )
-
-module.exports = router;
     // Index cho phân quyền chủ trọ
-    
     .get(
         '/addnewroom',
         isLoggedIn,
@@ -68,4 +61,3 @@ function notLoggedIn(req, res, next) {
         res.redirect('/');
     return next();
 }
-
