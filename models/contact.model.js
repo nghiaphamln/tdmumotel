@@ -10,6 +10,8 @@ var ContactModelSchema = new Schema({
     email: {type: String, default: ''},
     permission: { type: Number, default: 0 },
     phoneNumber: {type: String, default: ''},
+    time: {type: Date, default: Date.now},
+    status: {type: Number, default: 0}
 });
 
 module.exports = mongoose.model('contact', ContactModelSchema);

@@ -1,6 +1,6 @@
 <main class="page manager-page">
     <section class="clean-block about-us">
-        <div class="container">
+        <div class="container-fluid">
             <div class="block-heading">
                 <h2 class="text-info">Phản hồi từ thành viên</h2>
             </div>
@@ -10,24 +10,27 @@
 
 
 
-                <div class="tm-product-table-container">
-                    <table class="table table-hover tm-table-small tm-product-table">
+                <div class="tm-product-table-container ">
+                    <table class="table table-hover tm-table-small tm-product-table ">
                         <thead>
                             <tr>
 
-                                <th scope="col">TÊN THÀNH VIÊN</th>
-                                <th scope="col">TIÊU ĐỀ</th>
-                                <th scope="col">PHẢN HỒI</th>
-
+                                <th scope="col" class="tdtentv header">TÊN THÀNH VIÊN</th>
+                                <th scope="col" class="tdtentv header">TIÊU ĐỀ</th>
+                                <th scope="col" class="tdtentv header">PHẢN HỒI</th>
+                                <th scope="col" class="tdtentv header">TRẠNG THÁI</th>
+                                <th scope="col" class="tdtentv header">THỜI GIAN</th>
                             </tr>
-                        </thead>
+                        </thead >
                         <tbody>
                             <% listContact.forEach(function(phanhoi) { %>   
                                 <tr>         
-                                        <td> <%= phanhoi.name %>  </td>
-                                        <td> <%= phanhoi.title %> </td>
-                                        <td> <%= phanhoi.content %></td>
-
+                                        <td class="tdtentv"><a href="/admin/replycontact/<%= phanhoi.id %>" style="text-decoration: none; color: white;"> <%= phanhoi.name %></a>  </td>
+                                        <td class="tdtentv"> <%= phanhoi.title %> </td>
+                                        <td class="tdphanhoi"> <%= phanhoi.content %></td>
+                                        <td> <% if (phanhoi.status == 0) { %> Chưa trả lời <% } else { %> Đã trả lời <% } %>   </td>
+                                        <td class="tdphanhoi"> <%= phanhoi.time %></td>
+                                        
                                 </tr>
                             <% }); %>
 

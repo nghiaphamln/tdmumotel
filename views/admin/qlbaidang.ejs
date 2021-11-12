@@ -17,35 +17,34 @@
 
                                 <th scope="col">TIÊU ĐỀ</th>
                                 <th scope="col">MÔ TẢ</th>
-                                <th scope="col">ĐỊA CHỈ</th>
+                                <th scope="col">KHU VỰC</th>
                                 <th scope="col">GIÁ TIỀN</th>
-                                <th scope="col">THỜI GIAN ĐĂNG BÀI</th>
                                 <th scope="col">TRẠNG THÁI</th>
                                 <th scope="col">&nbsp;</th>
                                 <th scope="col">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <% listRoom.forEach(function(member) { %> 
                             <tr>
 
-                                <td class="tm-product-name">PHÒNG TRỌ ĐẦU TIÊN</td>
-                                <td>This is mô tả</td>
-                                <td>LosAngeles</td>
-                                <td>1500000</td>
-                                <td>15/11</td>
-                                <td>chờ duyệt</td>
+                                <td class="tm-product-name"><a href="/admin/viewroom/<%= member._id %>" style="text-decoration: none; color: white;"><%= member.title %></a></td>
+                                <td><%= member.description %></td>
+                                <td><%= member.wards %></td>
+                                <td><%= member.cost %></td>
+                                <td><% if (member.status == 0) { %> Đang chờ duyệt <% } else if (member.status == 1) { %> Đã duyệt <% } else { %> Đã bị ban <% } %> 
                                 <td>
                                     <a href="#" class="tm-product-delete-link">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
-                                <td>
-                                    <a href="#" class="tm-product-delete-link">
+                                <td class="td10">
+                                    <a href="/admin/delete-room/<%= member._id %>" class="tm-product-delete-link" onclick="return confirm('Bạn muốn xóa bài này khum?');">
                                         <i class="fas fa-check-circle"></i>
                                     </a>
                                 </td>
                             </tr>
-
+                            <% }); %>
                         </tbody>
                     </table>
 

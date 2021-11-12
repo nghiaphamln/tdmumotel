@@ -153,19 +153,27 @@ button:focus {
 }
 
 .table {
-    background-color: #50697f;
+    background-color: #2574A9;
     color: #fff;
     font-size: 85%;
     margin-bottom: 0;
+    
 }
 
 thead {
-    background-color: #486177;
+    background-color: #2574A9; 
     color: #fff;
+    
 }
+
+
+
 
 .table thead th {
     border-bottom: 0;
+    background-color: #2574A9; 
+    /*tạm bỏ vô đây*/
+    border-bottom: 1px solid #dee2e6;
 }
 
 .tm-status-circle {
@@ -317,7 +325,7 @@ thead {
 
 .btn-primary {
     color: #fff;
-    background-color: #415a70;
+    background-color: #2574A9;
     border: 2px solid #415a70;
     font-size: 90%;
     font-weight: 600;
@@ -340,11 +348,26 @@ thead {
 
 .table td,
 .table th {
-    border-top: 1px solid #415a70;
+    border-top: 1px solid #dee2e6;
     padding: 15px 25px;
     vertical-align: middle;
 }
 
+.tdphanhoi{
+    width: 30%;
+}
+.tdtentv{
+    width: 15%;
+}
+.td15{
+    width: 15%;
+}
+.td20{
+    width: 20%;
+}
+.td10{
+    width: 6%;
+}
 .tm-table-small td,
 .tm-table-small th {
     padding-left: 12px;
@@ -444,6 +467,8 @@ input[type="checkbox"]:focus {
 
 .tm-product-table tr {
     font-weight: 600;
+    /* display: block;
+    float: left; */
 }
 
 .tm-product-name {
@@ -650,4 +675,10 @@ input[type="checkbox"]:focus {
     #lineChart {
         max-height: 350px;
     }
+}
+
+.header{
+    position:sticky;
+    top: 0 ;
+    
 }
