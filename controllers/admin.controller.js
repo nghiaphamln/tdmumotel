@@ -204,7 +204,17 @@ class AdminController {
         
         var postID = req.params.id;
         await PostModel.deleteOne({_id: postID});
-        res.redirect('admin/qlbaidang');
+        res.redirect('/admin/qlbaidang');
+    }
+    //duyệt bài
+    static async acceptRoom(req, res, next) {
+        var postID = req.params.id;
+        await PostModel.findOne({ _id: postID }, (err, doc) => {
+            doc.status = 1;
+            doc.save();
+            res.redirect('/admin/qlbaidang');
+        });    
+        
     }
 }
 module.exports = AdminController;

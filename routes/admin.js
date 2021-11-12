@@ -68,6 +68,12 @@ router
         isAdmin,
         AdminCtrl.deleteRoom,
     )
+    
+    .get(
+        '/accept-room/:id',
+        isAdmin,
+        AdminCtrl.acceptRoom,
+    )
 module.exports = router;
 
 function isAdmin(req, res, next) {
