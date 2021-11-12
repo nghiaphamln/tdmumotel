@@ -30,7 +30,11 @@
                                         <td class="tdphanhoi"> <%= phanhoi.content %></td>
                                         <td> <% if (phanhoi.status == 0) { %> Chưa trả lời <% } else { %> Đã trả lời <% } %>   </td>
                                         <td class="tdphanhoi"> <%= phanhoi.time %></td>
-                                        
+                                        <td >
+                                            <a href="/admin/replycontact/<%= phanhoi.id %>" class="tm-product-delete-link" >
+                                                <i class="fas fa-info-circle"></i>
+                                            </a>
+                                        </td>
                                 </tr>
                             <% }); %>
 
