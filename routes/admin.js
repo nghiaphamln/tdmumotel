@@ -28,10 +28,45 @@ router
         isAdmin,
         AdminCtrl.xemphanhoi
     )
+
+    .get(
+        '/viewroom/:id',
+        isAdmin,
+        AdminCtrl.viewRoomID,
+    )
+
+    .get(
+        '/viewprofile/:id',
+        isAdmin,
+        AdminCtrl.viewprofile,
+    )
+
+    .get(
+        '/replycontact/:id',
+        isAdmin,
+        AdminCtrl.Reply,
+    )
+
+    .post(
+        '/replycontact/:id',
+        AdminCtrl.ReplyContact,
+    )
+
+    .get(
+        '/addmember',
+        isAdmin,
+        AdminCtrl.AddMemberPage,
+    )
+
+    .post(
+        '/addmember',
+        AdminCtrl.AddMember,
+    )
+
     .get(
         '/delete-room/:id',
         isAdmin,
-        AdminCtrl.deleteRoom
+        AdminCtrl.deleteRoom,
     )
 module.exports = router;
 

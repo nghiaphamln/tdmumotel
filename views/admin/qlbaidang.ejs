@@ -15,26 +15,25 @@
                         <thead>
                             <tr>
 
-                                <th scope="col" class="td15">TIÊU ĐỀ</th>
-                                <th scope="col" class="td20">MÔ TẢ</th>
-                                <th scope="col" class="td20">ĐỊA CHỈ</th>
-                                <th scope="col" class="td15">GIÁ TIỀN</th>
-                                <th scope="col" class="td15">THỜI GIAN ĐĂNG BÀI</th>
-                                <th scope="col" class="td15">TRẠNG THÁI</th>
-                                <th scope="col" class="td10">&nbsp;</th>
-                                <th scope="col" class="td10">&nbsp;</th>
+                                <th scope="col">TIÊU ĐỀ</th>
+                                <th scope="col">MÔ TẢ</th>
+                                <th scope="col">KHU VỰC</th>
+                                <th scope="col">GIÁ TIỀN</th>
+                                <th scope="col">TRẠNG THÁI</th>
+                                <th scope="col">&nbsp;</th>
+                                <th scope="col">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <% listRoom.forEach(function(member) { %> 
                             <tr>
 
-                                <td class="tm-product-name td15">PHÒNG TRỌ ĐẦU TIÊN</td>
-                                <td class="td20">This is mô tả</td>
-                                <td class="td20">LosAngeles</td>
-                                <td class="td15">1500000</td>
-                                <td class="td15">15/11</td>
-                                <td class="td15">chờ duyệt</td>
-                                <td class="td10">
+                                <td class="tm-product-name"><a href="/admin/viewroom/<%= member._id %>" style="text-decoration: none; color: white;"><%= member.title %></a></td>
+                                <td><%= member.description %></td>
+                                <td><%= member.wards %></td>
+                                <td><%= member.cost %></td>
+                                <td><% if (member.status == 0) { %> Đang chờ duyệt <% } else if (member.status == 1) { %> Đã duyệt <% } else { %> Đã bị ban <% } %> 
+                                <td>
                                     <a href="#" class="tm-product-delete-link">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
@@ -45,7 +44,7 @@
                                     </a>
                                 </td>
                             </tr>
-
+                            <% }); %>
                         </tbody>
                     </table>
 

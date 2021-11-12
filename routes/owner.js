@@ -40,6 +40,7 @@ router
 
     .get(
         '/roominfo',
+        isLoggedIn,
         OwnerCtrl.roominfo
     )
 
