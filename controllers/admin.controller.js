@@ -132,12 +132,12 @@ class AdminController {
                         'Đây là trả lời của chúng tôi về phản hồi của bạn: ' + content + '.\n'
                 };
                 smtpTransport.sendMail(mailOptions)
-                var contactID = req.params.id;
-                ContactModel.findOne({id: contactID}, (err, doc) => {
+                ContactModel.findOne({_id: req.params.id}, (err, doc) => {
                     doc.status = 1;
-                    doc.save();
+                    doc.save(); 
                 });
-                res.redirect('/admin/xemphanhoi');
+               
+                return res.redirect('/admin/xemphanhoi');
             }
         ], function (err) {
             
@@ -165,7 +165,7 @@ class AdminController {
     static async xemphanhoi(req, res, next) {
         
         try {
-            var listContact = await ContactModel.find().sort({time: -1}); 
+            var listContact = await ContactModel.find(); 
             res.render('admin/xemphanhoi', { title: 'Phản hồi từ thành viên', page_name: 'xemphanhoi', user: req.user, listContact: listContact});
         } catch {
             res.status(500).send(exception);
@@ -194,7 +194,7 @@ class AdminController {
         var User = new UserModel();
         User.email = email;
         User.phone = phone;
-        User.name = name;
+        User.permission = 2;
         User.password = password;
         
         User.save();
@@ -204,7 +204,26 @@ class AdminController {
         
         var postID = req.params.id;
         await PostModel.deleteOne({_id: postID});
-        res.redirect('admin/qlbaidang');
+        res.redirect('/admin/qlbaidang');
+    }
+    //duyệt bài
+    static async acceptRoom(req, res, next) {
+        var postID = req.params.id;
+        await PostModel.findOne({ _id: postID }, (err, doc) => {
+            doc.status = 1;
+            doc.save();
+            res.redirect('/admin/qlbaidang');
+        });    
+        
+    }
+    static async reviewPhanhoi(req, res, next) {
+        
+        try {
+            var listReply = await ReplyModel.find().sort({time: -1}); 
+            res.render('admin/reviewphanhoi', { title: 'Xem lại các phản hồi cho thành viên', page_name: 'reviewphanhoi', user: req.user, listReply: listReply});
+        } catch {
+            res.status(500).send(exception);
+        }
     }
 }
 module.exports = AdminController;
