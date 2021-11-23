@@ -26,10 +26,13 @@ var upload = multer({
         }
     }
 }).single("Image");
+function isNumber(val) {
+    return !isNaN(val);
+}
 class OwnerController {
     static async addnewroomPage(req, res, next) {
         try {
-            res.render('owner/addnewroom', { title: 'Thêm bài mới', page_name: 'addnewroom', user: req.user });
+            res.render('owner/addnewroom', { title: 'Thêm bài mới', page_name: 'addnewroom', user: req.user, messages: req.flash('fail') });
         } catch {
             res.status(500).send(exception);
         }
@@ -47,13 +50,33 @@ class OwnerController {
                     var description = req.body.description;
                     var streetName = req.body.streetName;
                     var wards = req.body.wards;
+                    if (wards == "Lựa chọn phường") {
+                        req.flash('fail', 'Vui lòng chọn phường!');
+                        return res.redirect('/owner/addnewroom');
+                    }   
                     var district = "Thủ Dầu Một";
                     var cost = req.body.cost; 
+                    if (isNumber(cost) == false) {
+                        req.flash('fail', 'Giá phòng phải là số!');
+                        return res.redirect('/owner/addnewroom');
+                    }   
                     var water = req.body.water;
+                    if (isNumber(water) == false) {
+                        req.flash('fail', 'Tiền nước phải là số!');
+                        return res.redirect('/owner/addnewroom');
+                    }   
                     var electric = req.body.electric;
+                    if (isNumber(electric) == false) {
+                        req.flash('fail', 'Tiền điện phải là số!');
+                        return res.redirect('/owner/addnewroom');
+                    }   
                     var area = req.body.area;
                     var ultilities = req.body.ultilities;
                     var roomType = req.body.roomType;
+                    if (roomType == 'Chọn loại phòng') {
+                        req.flash('fail', 'Tiền điện phải là số!');
+                        return res.redirect('/owner/addnewroom');
+                    }  
                     console.log(title)
                     console.log(title)
                     console.log(title)
