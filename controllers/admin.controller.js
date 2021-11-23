@@ -165,7 +165,7 @@ class AdminController {
     static async xemphanhoi(req, res, next) {
         
         try {
-            var listContact = await ContactModel.find().sort({time: -1}); 
+            var listContact = await ContactModel.find(); 
             res.render('admin/xemphanhoi', { title: 'Phản hồi từ thành viên', page_name: 'xemphanhoi', user: req.user, listContact: listContact});
         } catch {
             res.status(500).send(exception);
@@ -215,6 +215,15 @@ class AdminController {
             res.redirect('/admin/qlbaidang');
         });    
         
+    }
+    static async reviewPhanhoi(req, res, next) {
+        
+        try {
+            var listReply = await ReplyModel.find().sort({time: -1}); 
+            res.render('admin/reviewphanhoi', { title: 'Xem lại các phản hồi cho thành viên', page_name: 'reviewphanhoi', user: req.user, listReply: listReply});
+        } catch {
+            res.status(500).send(exception);
+        }
     }
 }
 module.exports = AdminController;
