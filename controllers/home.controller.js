@@ -304,7 +304,7 @@ class HomeController {
 
     static profilePage(req, res) {
         try {
-            res.render('profile', { title: 'Thông tin cá nhân', page_name: 'profile', user: req.user });
+            res.render('profile', { title: 'Thông tin cá nhân', page_name: 'profile', user: req.user, messages: req.flash('fail') });
         } catch {
             res.status(500).send(exception);
         }
@@ -343,6 +343,23 @@ class HomeController {
                     var address = req.body.address;
                     var email = req.body.email;
                     var phone = req.body.phone;
+                    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+                    if (!filter.test(email)) { 
+                        req.flash('fail', 'Email không đúng định dạng!');
+                        return res.redirect('/profile');
+                    }
+                    if (email === "" || fullName === "" || phone === "" || address === "") {
+                        req.flash('fail', 'Vui lòng điền đầy đủ các trường!');
+                        return res.redirect('/profile');
+                    }
+                    var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                    
+                    if (vnf_regex.test(phone) == false) 
+                    {
+                            req.flash('fail', 'Số điện thoại không đúng định dạng!');
+                            return res.redirect('/profile');
+                    }
+   
                     try {
                         var avatar = '/uploads/' + req.file.filename;
                     }
