@@ -17,6 +17,11 @@ router
         notLoggedIn,
         HomeCtrl.login
     )
+    
+    .get(
+        '/quytac',
+        HomeCtrl.quytac
+    )
 
     .post(
         '/login',

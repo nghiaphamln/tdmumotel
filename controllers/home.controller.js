@@ -48,6 +48,14 @@ class HomeController {
         }
     }
 
+    static quytac(req, res) {
+        try {
+            res.render('quytacdangbai', { title: 'Quy tắc đăng bài', page_name: 'quytac'});
+        } catch (exception) {
+            res.status(500).send(exception);
+        }
+    }
+
     static about(req, res) {
         try {
             res.render('about', { title: 'Giới thiệu', page_name: 'about', user: req.user });
