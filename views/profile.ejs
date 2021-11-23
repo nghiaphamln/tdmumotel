@@ -4,6 +4,9 @@
       <form action="/profile" enctype="multipart/form-data" method="post">
       <div class="wrapper bg-white mt-sm-5">
         <h4 class="pb-4 border-bottom">Tài khoản</h4>
+        <% if (messages) { %>
+          <p style="color: red; font-size: 15px;"> <%= messages %> </p>
+      <% } %> 
         <div class="d-flex align-items-start py-3 border-bottom">
           <img
             border-radius="20%"
@@ -56,6 +59,7 @@
                 type="text"
                 class="bg-light form-control"
                 placeholder="Địa chỉ mail"
+                readonly="readonly"
                 id="email"
                 name="email"
                 value=<%= user.email %>

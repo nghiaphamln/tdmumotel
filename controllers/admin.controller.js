@@ -177,6 +177,7 @@ class AdminController {
         let newpassword = req.body.password;
         let phone = req.body.phone; 
         let name = req.body.username;
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         // hash password
         let password = bcrypt.hashSync(newpassword, bcrypt.genSaltSync(8), null)
       
@@ -190,7 +191,17 @@ class AdminController {
             req.flash('fail', 'Mật khẩu phải có độ dài tối thiểu 8 ký tự!');
             return res.redirect('/admin/addmember');
         }
-                                                          
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                    
+        if (vnf_regex.test(phone) == false) 
+            {
+            req.flash('fail', 'Số điện thoại không đúng định dạng!');
+            return res.redirect('/admin/addmember');
+        } 
+        if (!filter.test(email)) { 
+            req.flash('fail', 'Email không đúng định dạng!');
+            return res.redirect('/admin/addmember');
+        }                                            
         var User = new UserModel();
         User.email = email;
         User.phone = phone;
