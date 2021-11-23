@@ -16,6 +16,9 @@
             <div class="col-xl-6 col-lg-6 col-md-12">
             <form method="post" enctype="multipart/form-data" class="tm-edit-product-form">
                 <div class="form-group mb-3">
+                    <% if (messages) { %>
+                        <p style="color: red; font-size: 15px;"> <%= messages %> </p>
+                    <% } %> 
                 <label
                     for="name"
                     >Tiêu đề
