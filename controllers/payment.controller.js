@@ -82,6 +82,18 @@ class PaymentController {
         }
     }
 
+    static async UpgradeAccount(req, res, next) {
+        let amount = 50000;
+        if (amount) {
+            PaymentController.Momo(amount).then((response) => {
+                return res.redirect(response.payUrl);
+            });
+        }
+        else {
+            return res.redirect("/");
+        }
+    }
+
     static async MomoCallBack(req, res, next) {
         let status = req.query.resultCode;
         if (status == 0) {
@@ -93,7 +105,15 @@ class PaymentController {
             });
         }
         else {
-            return res.redirect("/");
+            return res.redirect("/Payment/payment-error");
+        }
+    }
+
+    static async PaymentError(req, res, next) {
+        try {
+            res.render('layout', { title: 'Lỗi Thanh Toán', page_name: 'payment-error'});
+        } catch (exception) {
+            res.status(500).send(exception);
         }
     }
 }
