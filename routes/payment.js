@@ -12,9 +12,21 @@ router
     )
 
     .get(
+        '/upgrade-account',
+        isLoggedIn,
+        PaymentCtrl.UpgradeAccount
+    )
+
+    .get(
         '/return',
         isLoggedIn,
         PaymentCtrl.MomoCallBack
+    )
+
+    .get(
+        '/payment-error',
+        isLoggedIn,
+        PaymentCtrl.PaymentError
     )
 
 module.exports = router;

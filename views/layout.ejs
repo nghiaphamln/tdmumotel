@@ -1,6 +1,8 @@
 <% var page_name; %>
 <% if (page_name == "404") { %>
     <% include layouts/404.ejs%>
+<% } else if (page_name == "payment-error") { %>
+    <% include layouts/payment-error.ejs%>
 <% } else { %>
 <!DOCTYPE html>
 <html>
