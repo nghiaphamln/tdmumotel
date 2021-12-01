@@ -98,11 +98,11 @@ class PaymentController {
         let status = req.query.resultCode;
         if (status == 0) {
             await UserModel.findOne({ _id: req.user._id }, (err, doc) => {
-                doc.money = Number(doc.money) + Number(req.query.amount);
+                // doc.money = Number(doc.money) + Number(req.query.amount);
                 doc.permission = 1;
                 doc.save();
                 return res.redirect("/profile");
-            });
+            }).clone().catch(function(err){ console.log(err)});
         }
         else {
             return res.redirect("/Payment/payment-error");
